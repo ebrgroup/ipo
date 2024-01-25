@@ -1,5 +1,5 @@
 // Load Env variables
-if (process.env.NODE_ENV != "production") {
+if (process.env.NODE_ENV !== "production") {
     require("dotenv").config();
 }
 
@@ -27,11 +27,13 @@ connectToDb();
 app.use("/ipo", authenticationRoute);
 app.use("/ipo", authMiddleware, userRoutes);
 
-app.use(express.static(path.join(__dirname, './client/build')));
+// Serve static files from the React app's build directory
+app.use(express.static(path.join(__dirname, 'client/build')));
 
+// Handle requests to your React app's HTML file
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, './client/build/index.html'));
+    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
 });
 
-// Start our server
+// Start the server
 app.listen(process.env.PORT);
