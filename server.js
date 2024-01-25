@@ -28,11 +28,11 @@ app.use("/ipo", authenticationRoute);
 app.use("/ipo", authMiddleware, userRoutes);
 
 // Serve static files from the React app's build directory
-app.use(express.static(path.join(__dirname + '/client/build')));
+app.use(express.static(path.join(__dirname, './client/build')));
 
 // Handle requests to your React app's HTML file
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname + '/client/build/index.html'));
+app.all('*', (req, res) => {
+    res.sendfile(path.join(__dirname, './client/build/index.html'));
 });
 
 // Start the server
