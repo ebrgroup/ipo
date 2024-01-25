@@ -15,6 +15,8 @@ const {
     userRoutes
 } = require("./routes/index");
 
+const __dirname = path.resolve();
+
 // Create an express app
 const app = express();
 app.use(cors());
