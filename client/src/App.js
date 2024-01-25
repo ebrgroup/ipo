@@ -12,7 +12,7 @@ const App = () => {
 
   useEffect(() => {
     (async () => {
-      await axios.post("http://localhost:5000/ipo/login", {
+      await axios.post("/ipo/login", {
         cnic: "1234567890123",
         password: "secretpassword"
       })
