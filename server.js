@@ -31,7 +31,7 @@ app.use("/ipo", authMiddleware, userRoutes);
 app.use(express.static(path.join(__dirname, './client/build')));
 
 // Handle requests to your React app's HTML file
-app.all('*', (req, res) => {
+app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, './client/build/index.html'));
 });
 
