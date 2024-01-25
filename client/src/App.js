@@ -29,13 +29,11 @@ const App = () => {
   
 
   return (
-    userData && (
-      <div className="App">
-        <h1>Following data is coming from database:</h1>
-        <h2>User Id: </h2>
-        <h3>{userData.userId}</h3>
-      </div>
-    )
+    <div className="App">
+      <h1>Following data is coming from database:</h1>
+      <h2>User Id: </h2>
+      <h3>{userData.userId}</h3>
+    </div>
   );
 }
 
