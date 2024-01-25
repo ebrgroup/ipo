@@ -1,24 +1,41 @@
 import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
+import axios from "axios";
 import './App.css';
 
-function App() {
+const App = () => {
+
+  const [userData, setUserData] = useState({
+    userId: null,
+    token: null
+  });
+
+  useEffect(() => {
+    (async () => {
+      await axios.post("http://localhost:5000/ipo/login", {
+        cnic: "1234567890123",
+        password: "secretpassword"
+      })
+      .then(response => {
+        setUserData({
+          userId: response.data._id,
+          token: response.data.token
+        });
+      }).catch(error => {
+        console.error(error);
+      })
+    })();
+  }, []);
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    userData && (
+      <div className="App">
+        <h1>Following data is coming from database:</h1>
+        <h2>User Id: </h2>
+        <h3>{userData.userId}</h3>
+      </div>
+    )
   );
 }
 
