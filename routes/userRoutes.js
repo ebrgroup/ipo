@@ -7,11 +7,19 @@ router.get('/users', userController.fetchUsersData);
 
 router.get('/users/:id', userController.fetchUserData);
 
+router.get('/users/Request:token', userController.checkResetPasswordLink);
+
+router.post('/users/email/', userController.fetchUserByEmail);
+
 router.post('/users', userController.createUserDocument);
 
 router.put('/users/:id', userController.updateUserData);
 
 router.put('/users/changePassword/:id', userController.changePassword);
+
+router.put('/users/resetPassword/:id', userController.resetPassword);
+
+router.post('/users/validate', userController.validateUserData);
 
 router.delete('/users/:id', userController.deleteUserData);
 

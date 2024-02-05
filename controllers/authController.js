@@ -3,13 +3,13 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 const login = async (req, res) => {
-    const { cnic, password } = req.body;
+    const { email, password } = req.body;
     try
     {
-        const user = await User.findOne({ cnic });
+        const user = await User.findOne({ email });
         if (!user)
         {
-            return res.status(401).json({ message: "Invalid Credentials!" });
+            return res.status(401).json({ message: "Account with this email does not exist!" });
         }
         
         const passwordMatch = await bcrypt.compare(password, user.password);
@@ -18,10 +18,10 @@ const login = async (req, res) => {
             return res.status(401).json({ message: "Invalid Credentials!" });
         }
 
-        const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
-            expiresIn: "24h",
-        });
-        res.json({ token, _id: user._id });
+        // const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
+        //     expiresIn: "24h",
+        // });
+        res.json({ user });
     }
     catch (error)
     {

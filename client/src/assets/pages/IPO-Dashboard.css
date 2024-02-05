@@ -1,0 +1,90 @@
+.IP-Section {
+    /* padding: 10px; */
+}
+
+.dashboard {
+    width: 100%;
+    height: 100%;
+}
+
+.Registered-IP,
+.Applied-IP {
+    display: flex;
+    background-color: #ffff;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    padding: 0vh 1.25vw;
+    padding-bottom: 2vh;
+    border-radius: 10px;
+    box-sizing: border-box;
+    width: 100%;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    margin-bottom: 2.5vh;
+}
+
+.Registered-IP>p,
+.Applied-IP>p {
+    color: rgba(80, 79, 82, 0.975);
+    font-weight: 600;
+}
+
+.Registered-IP>.IPMenus,
+.Applied-IP>.IPMenus {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.IPMenus>.menu {
+    display: flex;
+    flex-direction: row;
+    color: white;
+    padding: 1px 3px;
+    margin: 5px 0px;
+    border-radius: 12px;
+    height: 100%;
+    justify-content: space-around;
+    align-items: center;
+    width: 18vw;
+}
+
+.menu img {
+    width: 40px;
+    height: 40px;
+}
+
+.menu>p:first-child {
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.menu>.IP-title {
+    transform: translateX(8px);
+}
+
+.IPMenus>.Trademark {
+    background-color: #15cab8;
+    width: 14vw;
+}
+
+.IPMenus>.Patent {
+    background-color: #44a6e9;
+    width: 14vw;
+}
+
+.IPMenus>.Design {
+    background-color: #ff8548;
+    width: 14vw;
+}
+
+.IPMenus>.Copyright {
+    background-color: #ff6a6a;
+    width: 14vw;
+}
+
+.Applied-IP {
+    margin-top: 10px;
+}

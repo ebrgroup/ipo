@@ -5,15 +5,18 @@ const users = mongoose.Schema({
     email: { type: String, unique: true },
     phone: { type: String, unique: true },
     password: String,
-    fullname: String,
+    firstName: String,
+    lastName: String,
     gender: String,
-    category: String,
     landlineNum: String,
     faxNum: String,
     address: String,
     province: String,
-    city: String
+    city: String,
+    resetToken: { type: String, default: null, unique: true },
+    resetTokenExpiry: { type: Date, default: null }
 });
+
 
 const Users = mongoose.model('user', users);
 

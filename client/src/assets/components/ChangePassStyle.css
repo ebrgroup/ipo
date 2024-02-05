@@ -1,0 +1,128 @@
+.container-holder {
+    height: calc(100vh - 10.15vh);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 40vw;
+    height: 80vh;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(171, 170, 170, 0.727); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.container>.changePasswordHeader {
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: fit-content;
+    margin-top: 3vh;
+}
+
+.changePasswordHeader>img {
+    width: 7vw;
+}
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -5px;
+    width: 100%;
+}
+
+.changePasswordHeading {
+    padding: 0;
+    margin-top: 1vh;
+    margin-bottom: 3vh;
+    font-weight: normal;
+}
+
+.header-content p {
+    color: #47464ae3;
+    margin-top: -2vh;
+    font-size: 0.9rem;
+}
+
+.form {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4.5vh;
+}
+
+.change-password-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    width: 80%;
+    justify-content: space-between;
+    position: relative;
+}
+
+.btn {
+    width: 80%;
+}
+
+.btn>button {
+    width: 100%;
+    border-radius: 10px;
+    padding: 10px 8px;
+    border: none;
+    outline: none;
+    background-color: #009580;
+    color: white;
+    font-size: 17px;
+}
+.btn>button:hover{
+    cursor: pointer;
+    background-color: #009581eb;
+}
+
+.input-field {
+    width: 100%;
+    height: 4vh;
+    border: 2px solid transparent;
+    outline: none;
+    border-bottom: 2px solid #3f3f3f;
+    caret-color: #3f3f3f;
+    background-color: #fff;
+    padding: 5px;
+    transition: .5s linear;
+    letter-spacing: 1px;
+  }
+  
+  .input-field:focus {
+    border: 2px solid #036666;
+    caret-color: #036666;
+    color: #036666;
+    box-shadow: 4px 4px 10px #036666;
+  }
+  
+  .input-field:focus::placeholder {
+    color: #000;
+  }
+
+  .changePasswordIcon {
+    position: absolute;
+    top: 61.4%;
+    transform: translateY(-50%);
+    right: 2%;
+  }
+
+  .changePasswordIcon:hover {
+    cursor: pointer;
+  }

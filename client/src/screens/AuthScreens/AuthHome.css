@@ -1,0 +1,296 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+
+.authHome {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    background-color: #90b444;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    min-height: 92vh;
+    padding: 3.75vh 0vw;
+    flex-wrap: wrap;
+}
+
+.formHolderDiv {
+    padding: 3.7vh 0vw;
+    border-radius: 30px;
+    min-height: 85vh;
+    width: 42vw;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    color: black;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.sideContentDiv {
+    height: 92.5vh;
+    width: 50vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+}
+
+.authContentDiv {
+    width: 40vw;
+}
+
+.authHeading {
+    /* font-size: 2.5rem; */
+    font-size: 3vw;
+    text-align: left;
+    margin: 0;
+}
+
+.ipoDescText {
+    font-size: 1.2vw;
+}
+
+.joinedUsText {
+    font-weight: 100;
+    font-size: 1vw;
+}
+
+.ipoLogoImg {
+    width: 19vw;
+}
+
+.formHolderDivContent {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    /* width: 34vw; */
+    flex-direction: column;
+}
+
+.formTypeHeading {
+    /* font-size: 2rem; */
+    font-size: 2.35vw;
+    font-weight: 500;
+}
+
+.inputDiv {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 1.2vh 0 0;
+    gap: 0.6vh;
+    margin: 3.1vh 0vw;
+    position: relative;
+}
+
+.inputField {
+    border: 0;
+    outline: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: transparent;
+    height: 3vh;
+    text-align: left;
+    display: inline-block;
+    /* font-size: 1rem; */
+    font-size: 1.2vw;
+    align-self: stretch;
+}
+
+.line {
+    margin-top: 1.1vh;
+    height: 0.15vh;
+    /* height: 1px; */
+    background-color: #dcdcdc;
+    align-self: stretch;
+}
+
+.buttonDiv {
+    margin: 4.8vh 0vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1vw;
+}
+
+.submitButton {
+    cursor: pointer;
+    border: 0;
+    padding: 0.5vw;
+    background-color: #089484;
+    width: 12vw;
+    border-radius: 10px;
+    height: 6vh;
+    justify-content: center;
+    box-sizing: border-box;
+    z-index: 1;
+    color: white;
+    font-size: 1.05vw;
+    font-family: 'Poppins', sans-serif;
+}
+
+.submitButton:hover {
+    background-color: #0fd6bf;
+}
+
+.newUserText {
+    font-size: 1.05vw;
+}
+
+.newAccountText {
+    text-decoration: underline;
+}
+
+.newAccountText:hover {
+    color: #00c983;
+    cursor: pointer;
+}
+
+.cantSignIn:hover {
+    color: #00c983;
+    cursor: pointer;
+}
+
+.forgotPasswordDiv {
+    width: 30vw;
+}
+
+.sendRecoveryEmailButton {
+    width: inherit;
+    margin-top: 2.3vh;
+    margin-bottom: 2vh;
+}
+
+.forgotPasswordText {
+    color: #555555;
+    font-size: 1.17vw;
+}
+
+.justRememberedText {
+    text-align: center;
+}
+
+.twoInputFieldsDiv {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.halfInputField {
+    width: 14vw;
+}
+
+.serviceProviderField {
+    width: 10vw;
+}
+
+.phoneNumberField {
+    width: 16vw;
+}
+
+.signUpButton {
+    width: inherit;
+}
+
+.signUpInputDiv {
+    margin: 1.9vh 0vw;
+}
+
+.agreeCheckBox {
+    height: 2.5vh;
+    width: 2.5vw;
+    cursor: pointer;
+}
+
+.termsText {
+    color: #555555;
+    font-size: 1.05vw;
+    width: 27vw;
+}
+
+.genderDiv {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: black;
+    font-size: 1.15vw;
+}
+
+.genderDiv label input {
+    cursor: pointer;
+}
+
+.genderDiv label span {
+    color: #444;
+    padding-left: 0.3vw;
+    cursor: pointer;
+}
+
+.submitButton:disabled {
+    background-color: #089484;
+    cursor: default;
+}
+
+.createAccountForm {
+    width: inherit;
+}
+
+.passwordIcon {
+    position: absolute;
+    top: 55%;
+    transform: translateY(-50%);
+    right: 1%;
+}
+
+.passwordIcon:hover {
+    cursor: pointer;
+}
+
+.passwordField {
+    width: calc(100% - 2.3vw);
+}
+
+.signUpDiv {
+    width: 22vw;
+}
+
+.twoDropdownsDiv {
+    margin-top: 1.5vh;
+}
+
+/* @media (max-width: 600px) {
+    .authHome {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .signUpDiv {
+        align-self: center;
+    }
+
+    .formHolderDiv {
+        width: 90vw;
+        min-height: fit-content;
+        height: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* .formHolderDivContent {
+    } */
+
+    /* .sideContentDiv {
+        width: fit-content; /* Adjust the width for smaller screens */
+        /* position: static; Remove sticky positioning for smaller screens
+        padding: 10vh;
+        height: fit-content; */
+    /* } */
+
+    /* .authContentDiv {
+        width: 80vw; */
+    /* }  */
+/* }  */

@@ -34,9 +34,9 @@ const createUserDocument = async (req, res) => {
             email, 
             phone, 
             password, 
-            fullname, 
+            firstName,
+            lastName, 
             gender, 
-            category, 
             landlineNum, 
             faxNum, 
             address, 
@@ -49,14 +49,16 @@ const createUserDocument = async (req, res) => {
             email, 
             phone, 
             password: hashedPassword, 
-            fullname, 
-            gender, 
-            category, 
+            firstName,
+            lastName, 
+            gender,
             landlineNum, 
             faxNum, 
             address, 
             province, 
-            city
+            city,
+            resetToken: "",
+            resetTokenExpiry: null
         });
         res.status(200).json({ userData });
     } 
@@ -73,6 +75,52 @@ const createUserDocument = async (req, res) => {
         } else {
             res.status(500).json({ error: "An error has occurred while writing the user data." });
         }
+    }
+};
+
+const validateUserData = async (req, res) => {
+    try {
+        const {
+            cnic,
+            email,
+            phone,
+        } = req.body;
+
+        const [existingCNIC, existingEmail, existingPhone] = await Promise.all([
+            User.exists({ cnic }),
+            User.exists({ email }),
+            User.exists({ phone }),
+        ]);
+
+        if (existingCNIC) {
+            return res.status(500).json({ error: "User with this CNIC already exists." });
+        }
+        if (existingEmail) {
+            return res.status(500).json({ error: "User with this email already exists." });
+        }
+        if (existingPhone) {
+            return res.status(500).json({ error: "User with this phone no. already exists." });
+        }
+
+        res.status(200).json({ success: true });
+    } catch (error) {
+        res.status(500).json({ error: "An error occurred during data validation." });
+    }
+};
+
+const fetchUserByEmail = async (req, res) => {
+    try {
+        const { email } = req.body;
+
+        const user = await User.findOne({ email });
+
+        if (!user) {
+            return res.status(500).json({ error: "User with this email does not exist." });
+        }
+
+        res.status(200).json({ user });
+    } catch (error) {
+        res.status(500).json({ error: "An error occurred while fetching user by email." });
     }
 };
 
@@ -84,36 +132,36 @@ const updateUserData = async (req, res) => {
             cnic, 
             email, 
             phone, 
-            password, 
-            fullname, 
+            // password, 
+            firstName,
+            lastName, 
             gender, 
-            category, 
             landlineNum, 
             faxNum, 
             address, 
             province, 
             city 
          } = req.body;
-        let hashedPassword = undefined;
+        // let hashedPassword = undefined;
 
-        if(password !== undefined)
-            hashedPassword = await bcrypt.hash(password, 10);
+        // if(password !== undefined)
+        //     hashedPassword = await bcrypt.hash(password, 10);
 
         await User.findByIdAndUpdate(userId, { 
             cnic, 
             email, 
             phone, 
-            password, 
-            fullname, 
-            gender, 
-            category, 
+            // password, 
+            firstName,
+            lastName,  
+            gender,
             landlineNum, 
             faxNum, 
             address, 
             province, 
             city 
         });
-        const userData = await User.findById(accountId);
+        const userData = await User.findById({ _id: userId });
         res.status(200).json({ userData });
     } 
     catch (error) 
@@ -127,32 +175,83 @@ const updateUserData = async (req, res) => {
         else if (error.code === 11000 && error.keyPattern.phone === 1) {
             res.status(500).json({ error: "User with this phone no. already exists." });
         } else {
-            res.status(500).json({ error: "An error has occurred while writing the user data." });
+            res.status(401).json({ error: "An error has occurred while updating the user data." });
         }
     }
 };
 
+const checkResetPasswordLink = async (req, res) => {
+    try {
+        const token = req.params.id;
+
+        const user = await User.findOne({
+            resetToken: token,
+            resetTokenExpiry: { $gt: Date.now() }
+        });
+
+        if(!user) {
+            if (process.env.NODE_ENV != "production") {
+                return res.redirect(`http://localhost:3000/signin`); // create a new page to show that the link has expired   
+            }
+            return res.redirect(`https://ipo-pk.cyclic.app/signin`);
+        }
+        if (process.env.NODE_ENV != "production") {
+            return res.redirect(`http://localhost:3000/createnewpassword/${token}`); 
+        }
+        res.redirect(`https://ipo-pk.cyclic.app/createnewpassword/${token}`);
+    } catch(error) {
+        res.status(404).json({ error: error.message });
+    }
+}
+
 const changePassword = async (req, res) => {
     const userId = req.params.id;
-    const { password, newPassword } = req.body;
+    const { password, newPassword, isNew } = req.body;
 
     try {
         const userData = await User.findById({ _id: userId });
-        const oldPasswordMatch = await bcrypt.compare(password, userData.password);
+        if(isNew !== true)
+        {
+            const oldPasswordMatch = await bcrypt.compare(password, userData.password);
 
-        if (!oldPasswordMatch) {
-            return res.status(401).json({ message: "Invalid Password" });
-        }
+            if (!oldPasswordMatch) {
+                return res.status(401).json({ message: "Invalid Password" });
+            }
 
-        const newPasswordMatch = await bcrypt.compare(newPassword, userData.password);
+            const newPasswordMatch = await bcrypt.compare(newPassword, userData.password);
 
-        if (newPasswordMatch) {
-            return res.status(401).json({ message: "New and old password cannot be the same." });
+            if (newPasswordMatch) {
+                return res.status(401).json({ message: "New and old password cannot be the same." });
+            }
         }
         let hashedPassword = await bcrypt.hash(newPassword, 10);
 
         await User.findByIdAndUpdate(userId, {
             password: hashedPassword
+        });
+
+        res.status(200).json({ message: "You have successfully changed your password." });
+    } catch (error) {
+        res.status(500).json({ error: "An error has occurred while updating the password" });
+    }
+};
+
+const resetPassword = async (req, res) => {
+    try {
+        const token = req.params.id;
+        const { newPassword } = req.body;
+        const userData = await User.findOne({ resetToken: token });
+        const oldPasswordMatch = await bcrypt.compare(newPassword, userData.password);
+        if(oldPasswordMatch) {
+            return res.status(401).json({ error: "New and old password cannot be the same." });
+        }
+
+        let hashedPassword = await bcrypt.hash(newPassword, 10);
+
+        await User.findByIdAndUpdate(userData._id, {
+            password: hashedPassword,
+            resetToken: "",
+            resetTokenExpiry: null
         });
 
         res.status(200).json({ message: "You have successfully changed your password." });
@@ -181,6 +280,10 @@ module.exports = {
     fetchUserData,
     createUserDocument,
     updateUserData,
+    checkResetPasswordLink,
     changePassword,
-    deleteUserData
+    resetPassword,
+    deleteUserData,
+    validateUserData,
+    fetchUserByEmail
 };
