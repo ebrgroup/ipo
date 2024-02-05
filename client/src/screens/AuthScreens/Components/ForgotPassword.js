@@ -15,9 +15,10 @@ const ForgotPassword = (props) => {
 
     useEffect(() => {
         props.Progress(100);
-    }, [])
+    }, []);
 
     const handleSubmit = async (e) => {
+        props.Progress(40);
         e.preventDefault();
 
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -29,9 +30,12 @@ const ForgotPassword = (props) => {
 
         await axios.post("/ipo/email/sendEmail", { email, isOTPEmail: false })
         .then(response => {
-                handleToastDisplay("Password recovery link has been sent to your email!", "success");
+            props.Progress(80);
+            handleToastDisplay("Password recovery link has been sent to your email!", "success");
+            props.Progress(100);
         }).catch(error => {
                 setEmail("");
+                props.Progress(100);
                 if (error.response !== undefined) {
                     if (error.response.data) {
                         handleToastDisplay(`${error.response.data.error}`, "error");

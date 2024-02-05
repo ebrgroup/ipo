@@ -32,6 +32,7 @@ const CreateNewPassword = (props) => {
     }, [userToken]);
 
     const handleSubmit = async (e) => {
+        props.Progress(50);
         e.preventDefault();
 
         if (formData.newPassword !== formData.confirmPassword) {
@@ -50,10 +51,13 @@ const CreateNewPassword = (props) => {
             newPassword: formData.newPassword
         })
         .then(response => {
+            props.Progress(80);
             handleToastDisplay("You have successfully updated your password!", "success");
+            props.Progress(100);
             navigate("/signin");
         }).catch(error => {
             clearFields();
+            props.Progress(100);
             if(error.response !== undefined){
                 if (error.response.data) {
                     handleToastDisplay(`${error.response.data.error}`, "error");

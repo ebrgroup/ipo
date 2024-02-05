@@ -83,7 +83,7 @@ function App() {
         <Route path="/forgotpassword" element={<AuthHome screen={<ForgotPassword Progress={loadingProgress} />} />} />
         <Route path="/verification" element={<AuthHome screen={<Verification Progress={loadingProgress} />} />} />
         <Route path="/createnewpassword" element={<AuthHome screen={<CreateNewPassword Progress={loadingProgress} />} />} />
-        <Route path="/createnewpassword/:userToken" element={<AuthHome screen={<CreateNewPassword />} />} />
+        <Route path="/createnewpassword/:userToken" element={<AuthHome screen={<CreateNewPassword Progress={loadingProgress} />} />} />
         <Route path='*' element={<NotFoundPage Progress={loadingProgress} />} />
 
       </Routes>

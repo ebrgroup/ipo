@@ -110,6 +110,7 @@ const SignUp = (props) => {
             props.Progress(50);
             setValidatedUser(true);
         }).catch(error => {
+            props.Progress(100);
             setValidatedUser(false);
             handleApiError(error);
         });
@@ -136,6 +137,7 @@ const SignUp = (props) => {
                     handleToastDisplay("OTP has been sent to your email", "success");
                     navigate("/verification", { state: { newAccount: formData } });
                 }).catch(error => {
+                    props.Progress(100);
                     setValidatedUser(false);
                     handleApiError(error);
                     return false;

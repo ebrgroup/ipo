@@ -37,6 +37,7 @@ const Verification = (props) => {
     }
 
     const handleSubmit = async (e) => {
+        props.Progress(40);
         e.preventDefault();
 
         if(formData.mobileCode.length !== 6 || formData.emailCode.length !== 6) {
@@ -52,9 +53,11 @@ const Verification = (props) => {
         await axios.post("/ipo/email/otpVerification", {
             enteredOTP: formData.emailCode
         }).then(response => {
+            props.Progress(70);
             setOtpVerified(true);
         }).catch(error => {
             clearFields();
+            props.Progress(100);
             setOtpVerified(false);
             handleApiError(error);
         });
@@ -108,10 +111,12 @@ const Verification = (props) => {
             if(otpVerified) {
                 await axios.post(`/ipo/users`, newAccount)
                 .then(response => {
+                    props.Progress(100);
                     handleToastDisplay("You have successfully created your account!", "success");
                     navigate("/signin");
                 }).catch(error => {
                     clearFields();
+                    props.Progress(100);
                     setOtpVerified(false);
                     handleApiError(error);
                 });
