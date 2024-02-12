@@ -36,7 +36,7 @@ const getAccessToken = async () => {
         const { token } = await oAuth2Client.getAccessToken();
         return token;
     } catch (error) {
-        return res.status(404).json({ error });
+        return { error: error.message }
     }
 }
 
