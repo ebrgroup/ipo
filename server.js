@@ -25,9 +25,6 @@ app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 
-// Connect to database
-connectToDb();
-
 // Routing
 app.use("/ipo", authenticationRoute);
 app.use("/ipo", userRoutes);
@@ -43,5 +40,6 @@ app.get('*', (req, res) => {
     res.sendfile(path.join(__dirname, './client/build/index.html'));
 });
 
-// Start our server
-app.listen(process.env.PORT);
+connectToDb().then(() => {
+    app.listen(process.env.PORT);
+})
