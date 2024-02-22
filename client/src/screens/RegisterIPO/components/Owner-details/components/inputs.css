@@ -1,0 +1,19 @@
+.owner-input-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.owner-input-container input {
+    width: 70%;
+    border: 2px solid #f6f7f8;
+    padding: 0.5rem;
+    background-color: #f6f7f8;
+    color: black;
+    border-radius: 5px;
+    outline: none;
+    margin-bottom: 3vh;
+}
+
+.owner-input-container label {
+    font-size: 0.8rem;
+}

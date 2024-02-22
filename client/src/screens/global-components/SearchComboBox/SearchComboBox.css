@@ -1,0 +1,118 @@
+.wrapper {
+  position: relative;
+}
+
+.searchSelect-btn,
+li {
+  display: flex;
+  align-items: center;
+  /* cursor: pointer; */
+}
+
+.searchSelect-btn {
+  box-sizing: border-box;
+  display: flex;
+  background: #fff;
+  padding: 1.5vh 0.7vw;
+  font-size: 0.9rem;
+  font-weight: 400;
+  border-radius: 5px;
+  align-items: center;
+  /* cursor: pointer; */
+  justify-content: space-between;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+}
+
+.searchSelect-btn i {
+  font-size: 0.8rem;
+}
+
+.searchDropdownContent {
+  display: none;
+  padding: 1vh 0.5vw;
+  margin-top: 0.5vh;
+  background: #fff;
+  border-radius: 7px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper.active .searchDropdownContent {
+  display: block;
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.search input {
+  width: 100%;
+  box-sizing: border-box;
+  outline: none;
+  font-size: 0.8rem;
+  border-radius: 5px;
+  padding: 0.5vh 0.5vw;
+  border: 1px solid #B3B3B3;
+}
+
+.search input:focus {
+  border: 1px solid #4285f4;
+}
+
+.search input::placeholder {
+  color: #bfbfbf;
+}
+
+.searchDropdownContent .searchDropdownOptions {
+  padding: 0px;
+  margin: 0px;
+  margin-top: 0.5vh;
+  overflow-y: auto;
+}
+
+.searchComboboxOptionsHeight {
+  max-height: 25vh;
+}
+
+.searchDropdownOptions::-webkit-scrollbar {
+  width: 7px;
+}
+
+.searchDropdownOptions::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 25px;
+}
+
+.searchDropdownOptions::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 25px;
+}
+
+.searchDropdownOptions::-webkit-scrollbar-thumb:hover {
+  background: #b3b3b3;
+}
+
+.searchDropdownOptions .searchComboboxItem {
+  height: 6vh;
+  padding: 0 1vw;
+  font-size: 0.8rem;
+}
+
+.searchDropdownOptions li:hover,
+li.selected {
+  border-radius: 5px;
+  background: #e9e9e9;
+}
+
+.wrapper{
+  width: 18vw;
+}
+.greyText {
+  color: grey;
+}
+
+@media (max-width : 576px) {
+  .wrapper{
+      width: 68%;
+    }
+
+}

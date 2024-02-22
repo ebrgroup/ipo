@@ -1,0 +1,109 @@
+.help-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: large;
+    font-weight: 500;
+    justify-content: center;
+
+    /* box-shadow: 0px 0px 10px 1px rgba(202, 200, 200, 0.734); */
+    margin-top: 5px;
+    /* background-color: white; */
+
+    /* width: fit-content; */
+    /* padding: 0 1.5rem; */
+}
+
+.help-link span:hover {
+    color: blue;
+    border-bottom: 2px solid blue;
+    cursor: pointer;
+}
+
+.helpDesk-container {
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.879);
+    box-shadow: 0px 0px 4px 1px rgba(185, 185, 185, 0.384);
+    box-sizing: border-box;
+    height: 100%;
+    border-radius: 10px;
+    /* display: none; */
+
+}
+
+.helpDesk-container .helpDesk-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.helpDesk-header>span:hover {
+    cursor: pointer;
+
+}
+
+#heading {
+    font-weight: 500;
+    color: var(--gray);
+    font-size: 25px;
+}
+
+.helpDesk-header i {
+    font-size: 25px;
+
+    color: var(--gray);
+}
+
+.helpDesk-content {
+    position: relative;
+    height: 86%;
+}
+
+.helpDesk-content .item {
+    margin-top: 1rem;
+    transform: translateX(-2rem);
+    display: flex;
+    align-items: flex-start;
+    justify-content: start;
+    gap: 1rem;
+}
+
+.helpDesk-content p {
+    font-size: 14px;
+    margin-top: 4rem;
+    padding: 0 1rem;
+    box-sizing: border-box;
+
+    position: absolute;
+    bottom: 0.5rem;
+    /* right: ; */
+}
+
+.helpDesk-content ul i {
+    font-size: 9px;
+    margin-top: 7px;
+    color: var(--lightgray);
+}
+
+.helpDesk-content>ul li a {
+    text-decoration: none;
+    color: var(--lightgray);
+    font-size: medium;
+    font-weight: 500;
+}
+
+.helpDesk-content a:hover {
+    text-decoration: underline;
+    color: blue;
+    cursor: pointer;
+}
+
+@media (min-width : 1280px) {}
+
+@media (min-width : 992px) and (max-width : 1280px) {}
+
+@media (min-width : 768px) and (max-width : 992px) {}
+
+@media (min-width : 572px) and (max-width : 768px) {}
+
+@media (max-width : 572px) {}

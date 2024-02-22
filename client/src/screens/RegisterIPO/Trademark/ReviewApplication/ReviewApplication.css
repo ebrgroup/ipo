@@ -1,0 +1,63 @@
+.reviewAppPage {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.reviewAppDiv {
+    height: 100%;
+    width: 60%;
+    box-sizing: border-box;
+    padding: 1vh 0.5vw;
+}
+
+.reviewAppBox {
+    box-sizing: border-box;
+    background-color: white;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    height: 100%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 0rem 1rem;
+    padding-left: 2rem;
+    gap: 1rem;
+}
+
+.reviewAppLabel {
+    color: gray;
+    font-weight: 700;
+    font-size: 0.7rem;
+}
+
+.reviewAppData {
+    font-size: 0.9rem;
+}
+
+.reviewAppColumnsDiv {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2rem;
+}
+
+.reviewAppBoxFooter {
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.reviewAppBoxFooter div {
+    flex-direction: column;
+    font-size: 0.8rem;
+    gap: 0.35rem;
+}
+
+.reviewAppBoxFooter b {
+    font-weight: 600;
+}
+
+.reviewAppBox button {
+    margin-right: 5vw;
+}

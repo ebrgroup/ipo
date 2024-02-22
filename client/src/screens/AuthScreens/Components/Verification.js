@@ -11,7 +11,9 @@ const Verification = (props) => {
     const newAccount = state && state.newAccount;
     const [formData, setFormData] = useState({
         emailCode: '',
-        mobileCode: ''
+        mobileCode: '',
+        showEmailCodeError: false,
+        showMobileCodeError: false
     });
     const [otpVerified, setOtpVerified] = useState(false);
 
@@ -29,38 +31,37 @@ const Verification = (props) => {
         props.Progress(100);
     },[])
 
-    const clearFields = () => {
-        setFormData({
-            mobileCode: '',
-            emailCode: ''
-        });
-    }
-
     const handleSubmit = async (e) => {
         props.Progress(40);
         e.preventDefault();
 
-        if(formData.mobileCode.length !== 6 || formData.emailCode.length !== 6) {
-            handleToastDisplay("OTP should be of 6 digits!", "error");
-            return;
-        }
-        if(formData.mobileCode !== "111111") {
-            handleToastDisplay("Invalid OTP code!", "error");
-            clearFields();
-            return;
-        }
+        if (!areRequiredFieldsEmpty()) {
+            if(formData.mobileCode.length !== 6 || formData.emailCode.length !== 6) {
+                handleToastDisplay("OTP should be of 6 digits!", "error");
+                return;
+            }
+            if(formData.mobileCode !== "111111") {
+                handleToastDisplay("Invalid OTP code!", "error");
+                return;
+            }
 
-        await axios.post("/ipo/email/otpVerification", {
-            enteredOTP: formData.emailCode
-        }).then(response => {
-            props.Progress(70);
-            setOtpVerified(true);
-        }).catch(error => {
-            clearFields();
-            props.Progress(100);
-            setOtpVerified(false);
-            handleApiError(error);
-        });
+            await axios.post("/ipo/email/otpVerification", {
+                enteredOTP: formData.emailCode
+            }).then(response => {
+                setOtpVerified(true);
+            }).catch(error => {
+                setOtpVerified(false);
+                handleApiError(error);
+            });
+        }
+        else {
+            handleToastDisplay("Required fields must not be left empty.", "error");
+            setFormData((prevFormData) => ({
+                ...prevFormData,
+                showEmailCodeError: true,
+                showMobileCodeError: true
+            }));
+        }
     };
 
     const handleToastDisplay = (message, type) => {
@@ -115,7 +116,6 @@ const Verification = (props) => {
                     handleToastDisplay("You have successfully created your account!", "success");
                     navigate("/signin");
                 }).catch(error => {
-                    clearFields();
                     props.Progress(100);
                     setOtpVerified(false);
                     handleApiError(error);
@@ -141,8 +141,16 @@ const Verification = (props) => {
                         name="mobileCode"
                         value={formData.mobileCode}
                         onChange={handleInputChange}
+                        onBlur={() => setFormData({ ...formData, showMobileCodeError: true })}
+                        onFocus={() => setFormData({ ...formData, showMobileCodeError: false })}
                     />
-                <div className="line" />
+                    <div className={`line ${formData.showMobileCodeError && formData.mobileCode.length < 6 ? "redLine" : ""}`} />
+                    <span className="errorText">
+                        {formData.showMobileCodeError ? 
+                        (formData.mobileCode.length === 0 ? 
+                        "This field is required." : (formData.mobileCode.length < 6 ? 
+                        "Mobile code should have 6 digits." : "")) : ""}
+                    </span>
                 </div>
                 <div className="inputDiv">
                     <input
@@ -152,15 +160,20 @@ const Verification = (props) => {
                         name="emailCode"
                         value={formData.emailCode}
                         onChange={handleInputChange}
+                        onBlur={() => setFormData({ ...formData, showEmailCodeError: true })}
+                        onFocus={() => setFormData({ ...formData, showEmailCodeError: false })}
                     />
-                <div className="line" />
+                    <div className={`line ${formData.showEmailCodeError && formData.emailCode.length < 11 ? "redLine" : ""}`} />
+                    <span className="errorText">
+                        {formData.showEmailCodeError ? 
+                        (formData.emailCode.length === 0 ? 
+                        "This field is required." : (formData.emailCode.length < 6 ? 
+                        "Email code should have 6 digits." : "")) : ""}
+                    </span>
                 </div>
                 <button 
                     className="submitButton sendRecoveryEmailButton" 
                     type="Submit" 
-                    disabled={areRequiredFieldsEmpty()}
-                    title={areRequiredFieldsEmpty() ? 
-                        "You cannot proceed until all the required fields are filled." : ""} 
                 >
                     Proceed
                 </button>

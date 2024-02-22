@@ -1,0 +1,178 @@
+.IP-Menus {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    /* border: 2px solid red; */
+    height: 85vh;
+    justify-content: center;
+    /* margin: 2rem 0; */
+
+}
+
+.Ip-btn {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    align-items: center;
+    padding: 0.1rem 2rem;
+    width: 55%;
+    border-radius: 70px;
+    box-sizing: border-box;
+    position: relative;
+    cursor: pointer;
+}
+
+.Ip-btn span {
+    font-size: 60px;
+    font-weight: 600;
+}
+
+.Ip-btn img {
+    position: absolute;
+    right: 2rem;
+    width: 55px;
+    height: 55px;
+}
+
+.Ip-btn h4 {
+    font-size: 20px;
+}
+
+.Ip-btn h4,
+.Ip-btn span {
+    color: white;
+    font-weight: 500;
+}
+
+.Ip-btn:nth-child(1) {
+    background-color: #15cab8;
+}
+
+.Ip-btn:nth-child(2) {
+    background-color: #44a6e9;
+}
+
+.Ip-btn:nth-child(3) {
+    background-color: #ff8548;
+}
+
+.Ip-btn:nth-child(4) {
+    background-color: #ff6a6a;
+}
+
+.Ip-btn:nth-child(1):hover {
+    background-color: #15cab8d6;
+}
+
+.Ip-btn:nth-child(2):hover {
+    background-color: #44a7e9e1;
+}
+
+.Ip-btn:nth-child(3):hover {
+    background-color: #ff8548e1;
+}
+
+.Ip-btn:nth-child(4):hover {
+    background-color: #ff6a6acb;
+}
+
+
+/* @media (min-width : 1280px) {
+    
+}
+@media (min-width : 992px) and (max-width : 1280px) {
+    
+}
+@media (min-width : 768px) and (max-width : 992px) {
+    
+}
+@media (min-width : 572px) and (max-width : 768px) {
+    
+}
+@media (max-width : 572px) {
+    
+} */
+
+@media (min-width : 1280px) {
+    .Ip-btn {
+        width: 60%;
+    }
+}
+
+
+@media (min-width : 992px) and (max-width : 1280px) {
+    .IP-Menus{
+        margin-top: 20px;
+    }
+    .Ip-btn {
+        width: 80%;
+        gap: 1rem;
+    }
+
+    .Ip-btn h4 {
+        font-size: 18px;
+    }
+}
+
+@media (min-width : 768px) and (max-width : 992px) {
+    .Ip-btn {
+        width: 95%;
+        padding: 5px 15px;
+        gap: 1rem;
+    }
+
+    .Ip-btn img {
+        width: 45px;
+        height: 45px;
+    }
+
+    .Ip-btn h4 {
+        font-size: 22px;
+    }
+}
+
+@media (min-width : 572px) and (max-width : 768px) {
+
+
+    .Ip-btn {
+        width: 100%;
+        padding: 0 15px;
+        gap: 10px;
+    }
+
+    .Ip-btn span {
+        font-size: 40px;
+    }
+
+    .Ip-btn img {
+        width: 40px;
+        height: 40px;
+        right: 20px;
+    }
+
+    .Ip-btn h4 {
+        font-size: 20px;
+    }
+}
+
+@media (max-width : 572px) {
+    .Ip-btn img {
+       display: none;
+    }
+
+    .Ip-btn {
+        width: 100%;
+        padding: 5px 5px;
+        gap: 5px;
+        border-radius: 10px ;
+    }
+
+    .Ip-btn span {
+        font-size: 40px;
+    }
+
+    .Ip-btn h4 {
+        font-size: small;
+    }
+}

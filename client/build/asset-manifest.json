@@ -1,18 +1,24 @@
 {
   "files": {
-    "main.css": "/static/css/main.0bfff8a7.css",
-    "main.js": "/static/js/main.b85ad79e.js",
+    "main.css": "/static/css/main.628c659d.css",
+    "main.js": "/static/js/main.a6504ec6.js",
     "static/js/787.d5fa4d18.chunk.js": "/static/js/787.d5fa4d18.chunk.js",
     "static/media/rectangle-8@2x.png": "/static/media/rectangle-8@2x.448f12d29ca229ecf217.png",
+    "static/media/coca-cola.png": "/static/media/coca-cola.3350b7d85513f84b210b.png",
+    "static/media/BhiveimgText.png": "/static/media/BhiveimgText.66736b5a7b039db5ebba.png",
     "static/media/ipologo.png": "/static/media/ipologo.a09ac79e70eeed35f09e.png",
+    "static/media/Bhivetxt.png": "/static/media/Bhivetxt.cf7ec88c66b500ca43be.png",
+    "static/media/Bhiveimg.png": "/static/media/Bhiveimg.0d2674b9d6e5ba750cd8.png",
     "static/media/IPO_Img.png": "/static/media/IPO_Img.6f8d48c16449f9a233d4.png",
+    "static/media/payment-header-svg-2.svg": "/static/media/payment-header-svg-2.04c49833558f5674fe0b434d748ba9b4.svg",
+    "static/media/visa-svg.svg": "/static/media/visa-svg.b67ad38d2cd2cdb6f99ab732d785338e.svg",
     "index.html": "/index.html",
-    "main.0bfff8a7.css.map": "/static/css/main.0bfff8a7.css.map",
-    "main.b85ad79e.js.map": "/static/js/main.b85ad79e.js.map",
+    "main.628c659d.css.map": "/static/css/main.628c659d.css.map",
+    "main.a6504ec6.js.map": "/static/js/main.a6504ec6.js.map",
     "787.d5fa4d18.chunk.js.map": "/static/js/787.d5fa4d18.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0bfff8a7.css",
-    "static/js/main.b85ad79e.js"
+    "static/css/main.628c659d.css",
+    "static/js/main.a6504ec6.js"
   ]
 }

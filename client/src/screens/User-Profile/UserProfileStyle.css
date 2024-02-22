@@ -1,0 +1,469 @@
+.profile-container {
+  width: 100%;
+  padding: 1vh 1vw;
+  box-sizing: border-box;
+}
+
+.profile-image {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+.profile-image-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.profile-image-container h2 {
+  font-family: Poppins;
+}
+
+.profile-image button {
+  color: white;
+  outline: none;
+  border: none;
+  background-color: #036666c5;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  text-align: center;
+}
+
+.profile-image button:hover {
+  cursor: pointer;
+  background-color: #036666ab;
+}
+
+ .profile-image-span {
+
+  width: 80%;
+  text-align: center;
+}
+
+.profile-info {
+  background-color: white;
+  box-shadow: 0px 0px 10px rgba(171, 170, 170, 0.727);
+  border-radius: 10px;
+  width: 80%;
+  margin: auto;
+  height: fit-content;
+  box-sizing: border-box;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-items: center;
+}
+
+.profile-info .editProfilePicDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+}
+
+.profile-info .editProfilePicDiv div img {
+  width: 5rem;
+  height: 5rem;
+}
+
+
+.profile-info h2 {
+  color: #84818A;
+}
+
+.profile-info .form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 20px;
+  height: fit-content;
+  justify-content: start;
+  align-items: start;
+}
+
+.profile-info .form {
+  margin: auto;
+}
+
+.profile-info .form .full-width {
+  width: 99%;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.flex .coolinput input {
+  width: 22vw;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: 0.5vw;
+  padding: 10px 0;
+}
+
+.form .input-container {
+  padding: 5px;
+  width: 40%;
+  font-size: 15px;
+  color: #84818A;
+  border: none;
+  border-bottom: 1px solid #84818A;
+  outline: none;
+}
+
+
+
+.flex .genderBox {
+  transform: translateX(-10px);
+}
+
+.gender-child-container {
+  width: 75%;
+}
+
+.genderOptionsDiv {
+  height: 38%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+}
+
+.genderOptionsDiv span {
+  margin-left: 0.3vw;
+  cursor: pointer;
+}
+
+.genderOptionsDiv input {
+  cursor: pointer;
+}
+
+.buttons .cancelBtn {
+  background-color: white;
+  color: black;
+  border: 1px solid #036666ab;
+}
+
+.cancelBtn:hover {
+  background-color: rgb(255, 28, 28);
+  color: white;
+}
+
+.coolinput {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  position: static;
+
+}
+
+.coolinput label.text {
+  font-size: 0.75rem;
+  color: #036666;
+  font-weight: 700;
+  position: relative;
+  top: 0.5rem;
+  margin: 0 0 0 7px;
+  padding: 0 3px;
+  background: white;
+  width: fit-content;
+}
+
+.coolinput.error label.text {
+  color: red;
+}
+
+.coolinput.error input[type=text].input {
+  border: 2px red solid;
+}
+
+.coolinput input[type=text].input {
+  padding: 11px 10px;
+  font-size: 0.75rem;
+  border: 2px #036666 solid;
+  border-radius: 5px;
+  background: white;
+}
+
+.coolinput input[type=text].input:focus {
+  outline: none;
+}
+
+.FieldError {
+  margin-top: 1%;
+  color: red;
+  font-size: 12px;
+}
+
+.gender-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 24vw;
+  padding-top: 1.5vh;
+  padding-right: 0.17vw;
+}
+
+/* .gender-container b {
+  margin-top: 1vh;
+  margin-right: 1.5vw;
+  font-size: 0.95rem;
+  color: #036666;
+}
+
+.mydict:focus {
+  outline: 0;
+  border-color: #036666;
+  box-shadow: 0 0 0 4px #b5c9fc;
+}
+
+.mydict div {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+  justify-content: space-between;
+}
+
+.mydict input[type="radio"] {
+  clip: rect(0 0 0 0);
+  clip-path: inset(100%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.mydict input[type="radio"]:checked+span {
+  box-shadow: 0 0 0 0.0625em #036666;
+  background-color: #dee7ff;
+  z-index: 1;
+  color: #036666;
+}
+
+.mydict label span {
+  display: block;
+  cursor: pointer;
+  background-color: #fff;
+  padding: 0.75em 1.69em;
+  position: relative;
+  margin-left: .0625em;
+  box-shadow: 0 0 0 0.0625em #b5bfd9;
+  letter-spacing: .05em;
+  color: #3e4963;
+  text-align: center;
+  transition: background-color .5s ease;
+}
+
+.mydict label {
+  font-size: 0.8rem;
+}
+
+.mydict label:first-child span {
+  border-radius: .375em 0 0 .375em;
+}
+
+.mydict label:last-child span {
+  border-radius: 0 .375em .375em 0;
+}
+
+.input {
+  width: 49vw;
+}*/
+
+.cancelBtn:hover {
+  cursor: pointer;
+}
+
+
+.buttons .cancelBtn {
+  background-color: white;
+  color: black;
+  border: 1px solid #036666ab;
+  padding: 0.7rem 0rem;
+  width: 6rem;
+  text-align: center;
+  /* margin: 5px; */
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+.cancelBtn:hover {
+  background-color: rgb(255, 28, 28);
+  border: 1px solid rgb(255, 28, 28);
+  color: white;
+  cursor: pointer;
+}
+
+.save-button {
+  padding: 0.7rem 0rem;
+  width: 6rem;
+  font-family: inherit;
+  background: #036666;
+  color: white;
+  fill: rgb(155, 153, 153);
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  font-weight: normal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+}
+/* 
+.save-button span {
+  display: block;
+  transition: all 0.3s ease-in-out;
+} */
+/* 
+.save-button svg {
+  display: block;
+  transform-origin: center center;
+  transition: transform 0.3s ease-in-out;
+  margin-top: 0vh;
+  margin-right: 0.3vw;
+} */
+
+.save-button:disabled {
+  background: #036666;
+  cursor: default;
+}
+
+/* .save-button:disabled .svg-wrapper {
+  display: none;
+}
+
+.save-button:disabled:hover span {
+  opacity: 1;
+} */
+
+.save-button:hover {
+  background: #088d8dda;
+  cursor: pointer;
+  /* border: none; */
+}
+/* 
+.save-button:hover .svg-wrapper {
+  transform: scale(1);
+  transition: 0.5s linear;
+} */
+
+/* .save-button:hover svg {
+  transform: translateX(0.65em) scale(1.1);
+  fill: #fff;
+}
+
+.save-button:hover span {
+  opacity: 0;
+  transition: 0.5s linear;
+}
+
+.save-button:active {
+  transform: scale(0.95);
+} */
+
+.genderUpdateLabel {
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #036666;
+  /* margin-bottom: 1vh; */
+  margin-left: 0.15vw;
+}
+
+.addressDiv {
+  width: 100%;
+}
+
+.addressDiv input {
+  width: 96.5%;
+}
+
+.combobox-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 23.7vw;
+}
+
+.combobox-label {
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #036666;
+}
+
+@media (min-width : 576px) and (max-width:992px) {
+  .profile-info {
+    width: 90%;
+  }
+
+  .coolinput {
+    width: 45%;
+  }
+
+  .addressDiv {
+    width: 100%;
+  }
+}
+
+@media (max-width : 576px) {
+
+  .profile-info {
+    width: 100%;
+    padding: 1rem 1rem;
+  }
+
+  .coolinput {
+
+    width: 90%;
+
+  }
+
+  .gender-container {
+    width: 100%;
+    justify-content: start;
+    gap: 1rem;
+  }
+  .coolinput input[type=text].input  {
+    width: 100%;
+  }
+
+  .select-menu .select-btn{
+    width: 100;
+  }
+
+  .form {
+    width: 100%;
+  }
+
+  .flex {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .combobox-container {
+    width: 100%;
+  }
+
+
+  .profile-info>h2 {
+    margin: 0;
+  }
+
+}

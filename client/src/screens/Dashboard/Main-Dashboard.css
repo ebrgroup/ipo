@@ -1,0 +1,162 @@
+.Dashboard-Section {
+    width: 99.6vw;
+    background-color: #eee;
+    display: flex;
+}
+
+.left-Subsection {
+    width: 16%;
+    height: 98.8vh;
+    padding: 4px;
+    top: 0;
+    z-index: 100;
+    transition: all .3s ease-in-out;
+}
+
+.right-Subsection {
+    padding: 0 1rem;
+    height: 100vh;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: Poppins;
+    overflow: auto;
+}
+
+.screenContent {
+    height: 90%;
+    box-sizing: border-box;
+}
+
+.header {
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    background-color: #eee;
+    z-index: 99;
+}
+
+.header .title,
+.header .profile {
+    display: flex;
+}
+
+.profile {
+    transform: translateX(-15px);
+}
+
+.title img {
+    width: 15px;
+    height: 15px;
+}
+
+.title img:hover,.profile img:hover {
+    cursor: pointer;
+}
+
+.profile img {
+    width: 22px;
+    height: 22px;
+}
+
+
+.title img {
+    filter: invert(50%);
+}
+
+.title p,
+.user-profile p:first-child {
+    font-size: 17px;
+    margin-left: 7px;
+
+}
+
+.title p {
+    color: rgba(132, 129, 138, 0.77);
+}
+
+.user-profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    margin-top: 4px;
+}
+
+.user-profile p {
+    margin: -3px 0 -3px 10px;
+}
+
+.user-profile p:last-child {
+    font-size: 10px;
+    color: rgba(132, 129, 138, 0.77);
+    margin-top: 2px;
+}
+
+
+.title,
+.profile {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+}
+
+
+.open {
+    width: 13.5rem;
+}
+
+.close {
+    width: 3rem;
+    /* overflow: hidden; */
+}
+
+@media (min-width : 280px) and (max-width: 572px) {
+    .close {
+        margin-left: -3rem;
+    }
+
+    .open {
+        left: 0;
+    }
+}
+
+.profileDropdownDiv {
+    position: absolute;
+    top: 10.3vh;
+    right: 0.55vw;
+    width: 9rem;
+    border-radius: 8px;
+    background-color: white;
+    font-size: 0.75rem;
+    box-shadow: 0px 0px 10px rgba(171, 170, 170, 0.727);
+    margin: 0;
+    padding: 0;
+}
+
+.profileDropdownList {
+    margin: 1.5vh 0vw;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.profileDropdownList li {
+    padding: 0.9vh 1vw;
+    box-sizing: border-box;
+    color: rgb(71, 71, 71);
+    font-weight: 100;
+    font-size: 0.7rem;
+}
+
+.profileDropdownList li:hover {
+    background: #F2F2F2;
+    cursor: pointer;
+}
+
+.user-profile .firstName {
+    cursor: pointer;
+}

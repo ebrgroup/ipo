@@ -1,0 +1,82 @@
+.select-menu{
+    position: relative;
+    font-family: Poppins;
+}
+
+.select-menu .select-btn{
+    box-sizing: border-box;
+    display: flex;
+    background: #fff;
+    padding: 1.5vh 0.7vw;
+    font-size: 0.9rem;
+    font-weight: 400;
+    border-radius: 5px;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-between;
+    box-shadow: 0 0 5px rgba(0,0,0,0.25);
+}
+
+.redBoxShadow {
+    box-shadow: 0 0 3px red;    
+    box-sizing: border-box;
+    display: flex;
+    background: #fff;
+    padding: 1.5vh 0.7vw;
+    font-size: 0.9rem;
+    font-weight: 400;
+    border-radius: 5px;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-between;
+}
+
+.select-menu .options {
+    position: absolute;
+    padding: 0px 0px;
+    box-sizing: border-box;
+    margin-top: 0.5vh;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 0 3px rgba(0,0,0,0.1);
+    display: none;
+    z-index: 10;
+    width: 100%;
+    max-height: 25vh;
+    overflow-y: auto;
+    font-family: Poppins;
+}
+.select-menu{
+    width: 18vw;
+}
+
+.select-menu.active .options{
+    display: block;
+}
+
+.options .option{
+    display: flex;
+    box-sizing: border-box;
+    height: 6vh;
+    cursor: pointer;
+    padding: 0 1vw;
+    border-radius: 8px;
+    align-items: center;
+    background: #fff;
+    width: 100%;
+}
+
+.options .option:hover{
+    background: #F2F2F2;
+}
+
+.option .option-text{
+    font-size: 0.8rem;
+    color: #333;
+}
+
+@media (max-width : 576px) {
+      .select-menu{
+        width: 68%;
+      }
+}

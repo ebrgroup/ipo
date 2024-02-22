@@ -1,0 +1,193 @@
+.container-holder {
+    width: 100%;
+    margin: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    width: 45%;
+    height: fit-content;
+    margin: auto;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(171, 170, 170, 0.727);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    padding: 1rem 0 2rem 0;
+}
+
+.container>.changePasswordHeader {
+    width: 100%;
+
+    text-align: center;
+    height: fit-content;
+}
+
+.changePasswordHeader>img {
+    width: 125px;
+    height: 100px;
+}
+
+.changePasswordHeader * {
+    margin: 0;
+}
+
+.header-content>p {
+    margin: 3px 0;
+    padding: 0 2rem;
+    text-align: justify;
+    box-sizing: border-box;
+}
+
+
+
+.header-content {
+    width: 80%;
+    margin: auto;
+}
+
+.changePasswordHeading {
+    font-weight: normal;
+}
+
+.header-content p {
+    color: #47464ae3;
+    font-size: 0.9rem;
+}
+
+.form {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4.5vh;
+
+    margin-top: 1rem;
+}
+
+.change-password-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    width: 80%;
+    justify-content: space-between;
+    position: relative;
+}
+
+.btn {
+    width: 80%;
+}
+
+.btn>button {
+    width: 100%;
+    border-radius: 10px;
+    padding: 10px 8px;
+    border: none;
+    outline: none;
+    background-color: #009580;
+    color: white;
+    font-size: 17px;
+}
+
+.btn>button:hover {
+    cursor: pointer;
+    background-color: #009581eb;
+}
+
+.input-field {
+    width: 100%;
+    height: 4vh;
+    border: 2px solid transparent;
+    outline: none;
+    border-bottom: 2px solid #3f3f3f;
+    caret-color: #3f3f3f;
+    background-color: #fff;
+    padding: 5px;
+    transition: .5s linear;
+    letter-spacing: 1px;
+}
+
+.input-field:focus {
+    border: 2px solid #036666;
+    caret-color: #036666;
+    color: #036666;
+    box-shadow: 4px 4px 10px #036666;
+}
+
+.input-field:focus::placeholder {
+    color: #000;
+}
+
+.changePasswordIcon {
+    position: absolute;
+    top: 61.4%;
+    transform: translateY(-50%);
+    right: 2%;
+}
+
+.changePasswordIcon:hover {
+    cursor: pointer;
+}
+
+
+@media (min-width: 768px) and (max-width:992px) {
+    .container-holder>.container {
+        width: 65%;
+    }
+}
+
+@media (min-width: 572px) and (max-width:768px) {
+    .container-holder>.container {
+        width: 80%;
+    }
+}
+
+@media (max-width: 572px) {
+    .container-holder>.container {
+        width: 95%;
+    }
+
+    .changePasswordHeading {
+        font-size: medium;
+        width: 100%;
+    }
+
+    .changePasswordHeading+p {
+        font-size: small;
+        width: 100%;
+        text-align: left;
+        padding: 0;
+    }
+
+    .form {
+        width: 100%;
+    }
+
+    button[type='Submit'] {
+        width: 82%;
+        font-size: 13px;
+    }
+
+    .input-field{
+        font-size: 14px;
+    }
+
+    .changePasswordHeader > img{
+        width: 110px;
+        height: 90px;
+    }
+}
+
+@media (min-width: 992px) and (max-width : 1200px) {
+    .container-holder>.container {
+        width: 55%;
+    }
+}

@@ -1,0 +1,175 @@
+.owner-screen-background {
+  position: relative;
+  background-color: white;
+  box-shadow: 0px 0px 4px 1px rgba(185, 185, 185, 0.384);    
+  padding: 1rem 2rem 2rem;
+  border-radius: 10px;
+  width: 100%;
+  height: 87vh;
+  box-sizing: border-box;
+}
+
+.owner-main-heading {
+  font-family: Poppins;
+}
+
+.owner-screen-parent {
+  height: 80%;
+  border: 1px solid rgba(185, 185, 185, 0.384);
+  border-radius: 5px;
+  padding: 2vh 0 0 1vw;
+  overflow: scroll;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+}
+
+.owner-icon {
+  height: 50px;
+  margin-right: 0.5vw;
+}
+
+.owner-heading {
+  display: flex;
+  align-items: center;
+}
+
+.owner-heading h4 {
+  font-weight: 500;
+}
+
+.radio-inputs {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 0.5rem;
+  background-color: #EEE;
+  box-sizing: border-box;
+  box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);
+  padding: 0.25rem;
+  width: 98%;
+  font-size: 14px;
+  margin-top: 3.5vh;
+}
+  
+.radio-inputs .radio {
+  flex: 1 1 auto;
+  text-align: center;
+}
+  
+.radio-inputs .radio input {
+  display: none;
+}
+  
+.radio-inputs .radio .name {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  border: none;
+  padding: .5rem 0;
+  color: rgba(51, 65, 85, 1);
+  transition: all .15s ease-in-out;
+  font: 500 0.75rem Poppins;
+}
+  
+.radio-inputs .radio input:checked + .name {
+  background-color: #fff;
+  font-weight: 600;
+}
+
+.owner-screen-inputs {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5vh;
+}
+
+.partnership-parent-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.partnership-input-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5vh;
+  margin-bottom: -5vh;
+}
+
+.partnership-input-container input {
+  width: 23.56vw;
+  border: 2px solid #f6f7f8;
+  padding: 0.5rem;
+  background-color: #f6f7f8;
+  color: black;
+  border-radius: 5px;
+  outline: none;
+  margin-bottom: 3vh;
+  margin-right: 1.575vw;
+}
+
+.partnership-input-container label {
+  font-size: 0.8rem;
+}
+
+.partnership-add-button {
+  width: 8vw;
+  height: 5vh;
+  margin-top: 7.5vh;
+  border: none;
+  background-color: #036666;
+  color: #ffffff;
+  border-radius: 5px;
+}
+
+.partnership-add-button:hover {
+  cursor: pointer;
+  background-color: #036666c9;
+}
+
+.owner-dataGrid {
+  margin-top: 3vh;
+  padding-right: 1.5vw;   
+}
+
+.owner-dataTable {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  box-shadow: 0px 0px 4px 2.5px rgba(185, 185, 185, 0.5); 
+  table-layout: auto;
+}
+
+.owner-dataTable th {
+  font-weight: normal;
+  background-color: #036666;
+  color: white;
+  font-size: 0.8rem;
+  height: 4vh;
+}
+
+.owner-dataTable tr {
+  padding-left: 50vw;
+}
+
+.owner-dataTable td {
+  text-align: center;
+  color: black;
+  height: 4vh;
+  font-weight: 300;
+}
+
+.owner-dataTable tbody tr:nth-child(even) {
+  background-color: rgb(235, 235, 235);
+}
+
+.firstHeader {
+  border-top-left-radius: 8px;
+}
+
+.lastHeader {
+  border-top-right-radius: 8px;
+} 

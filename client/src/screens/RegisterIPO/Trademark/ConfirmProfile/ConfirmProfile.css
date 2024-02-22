@@ -1,0 +1,125 @@
+.profileBox {
+    box-sizing: border-box;
+    background-color: white;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    height: 100%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 0rem 1rem;
+    padding-left: 2rem;
+    width: 87.5%;
+}
+
+.helpAndSupportDiv {
+    height: 100%;
+    width: 40%;
+}
+
+.editProfileButton {
+    color: #0652DD;
+    font-size: 0.9rem;
+    display: flex;
+    align-self: flex-end;
+}
+
+.editProfileButton p:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+@keyframes popAnimation {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.editProfileButton span {
+    margin-top: 2.1vh;
+    margin-right: 0.35vw;
+}
+
+.profileBox h2 {
+    padding: 0;
+    margin: 0;
+}
+
+.profileLabel {
+    color: gray;
+    font-weight: bold;
+    font-size: 0.75rem;
+    margin-bottom: 0.7vh;
+}
+
+.profileInfoInputDiv {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+}
+
+.profileInfoInputField {
+    border: 0;
+    outline: 0;
+    background-color: transparent;
+    font-family: 'Poppins', sans-serif;
+    text-align: left;
+    display: inline-block;
+    font-size: 1rem;
+    align-self: stretch;
+    width: 9rem;
+    caret-color: transparent;
+}
+
+.profileInfoLine {
+    margin-top: 1.1vh;
+    height: 0.3vh;
+    background-color: #dcdcdc;
+    align-self: stretch;
+}
+
+.profileInfoNamesDiv {
+    display: flex;
+    gap: 2rem;
+}
+
+.profileBoxHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.75rem;
+}
+
+.profileBoxBody {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    height: 100%;
+}
+
+.longerProfileInputField {
+    width: 20rem;
+}
+
+.continueButton {
+    cursor: pointer;
+    border: 0;
+    padding: 0.5rem 1rem;
+    background-color: #089484;
+    border-radius: 10px;
+    box-sizing: border-box;
+    z-index: 1;
+    color: white;
+    font-size: 0.95rem;
+    font-family: 'Poppins', sans-serif;
+    align-self: flex-end;
+}
+
+.continueButton:hover {
+    background-color: #0fd6bf;
+}
+
+.profileBoxFooter {
+    display: flex;
+    justify-content: space-between;
+    height: 17.5%;
+}

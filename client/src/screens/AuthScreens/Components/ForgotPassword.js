@@ -8,6 +8,7 @@ const ForgotPassword = (props) => {
 
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
+    const [showEmailError, setShowEmailError] = useState(false);
 
     const handleInputChange = (e) => {
         setEmail(e.target.value);
@@ -21,12 +22,13 @@ const ForgotPassword = (props) => {
         props.Progress(40);
         e.preventDefault();
 
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            setEmail("");
-            handleToastDisplay("Invalid email format!", "error");
-            return;
-        }
+        if (email !== "") {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                setEmail("");
+                handleToastDisplay("Invalid email format!", "error");
+                return;
+            }
 
         await axios.post("/ipo/email/sendEmail", { email, isOTPEmail: false })
         .then(response => {
@@ -47,6 +49,11 @@ const ForgotPassword = (props) => {
                 }
             });
         }
+        else {
+            handleToastDisplay("Required email field must not be left empty.", "error");
+            setShowEmailError(true);
+        }
+    }
 
     const handleToastDisplay = (message, type) => {
         const toastConfig = {
@@ -90,15 +97,20 @@ const ForgotPassword = (props) => {
                         name="email"
                         value={email}
                         onChange={handleInputChange}
+                        onBlur={() => setShowEmailError(true)}
+                        onFocus={() => setShowEmailError(false)}
                     />
-                    <div className="line" />
+                    <div className={`line ${showEmailError && email.length == 0 ? "redLine" : ""}`} />
+                    <span className="errorText">
+                        {showEmailError ? 
+                        (email.length === 0 ? 
+                        "This field is required." : (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ? 
+                        "Email address should be of valid format." : "")) : ""}
+                    </span>
                 </div>
                 <button 
                     className="submitButton sendRecoveryEmailButton" 
                     type="submit"
-                    title={email === "" ? 
-                        "You cannot send recovery email until all the required field is filled." : ""} 
-                    disabled={email === ""}
                 >
                     Send Recovery Email
                 </button>

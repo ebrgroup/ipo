@@ -1,0 +1,60 @@
+:root {
+    --darkgreen: #036666;
+    --lightgreen: #73A2A2;
+}
+
+#FlowSteps-container {
+    padding-bottom: 10px;
+    height: fit-content;
+}
+
+#FlowSteps-container>#flow-title {
+    display: flex;
+    flex-direction: row;
+    gap: 0.6rem;
+    justify-content: center;
+    align-items: center;
+    max-height: 4rem;
+}
+
+#FlowSteps-container>#flow-title i {
+    color: #27ae60;
+    font-size: 17px;
+}
+
+#FlowSteps-container>#flow-title h5 {
+    font-weight: 500;
+    font-size: 17px;
+}
+
+.Steps-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+
+.step-btn {
+    background-color: var(--darkgreen);
+    color: white;
+    width: 85%;
+    height: 14.2vh;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 1rem;
+    border-radius: 12px;
+    box-sizing: border-box;
+    opacity: 0.6;
+}
+
+.active{
+    opacity: 1;
+}
+
+.step-btn span:first-child {
+    font-size: 23px;
+    font-weight: 500;
+}

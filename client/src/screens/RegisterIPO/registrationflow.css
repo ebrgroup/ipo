@@ -1,0 +1,34 @@
+:root {
+    --gray: #6B6B6B;
+    --lightgray: #84818A;
+}
+
+.Registration-Flow {
+    display: flex;
+    flex-direction: row;
+    height: fit-content;
+    gap: 1.5rem;
+    position: relative;
+    width: 100%;
+    height: fit-content;
+    box-sizing: border-box;
+    padding-top: 1rem;
+    padding-bottom: 0.4rem;
+
+    position: relative;
+}
+
+.Registration-Flow>section {
+    width: 70%;
+    margin-top: -10px;
+}
+
+.Registration-Flow aside {
+    width: 18rem;
+    box-shadow: 0px 0px 4px 1px rgba(185, 185, 185, 0.384);   
+    background-color: white;
+    border-radius: 10px;
+    height: fit-content;
+    margin-top: -10px;
+
+}

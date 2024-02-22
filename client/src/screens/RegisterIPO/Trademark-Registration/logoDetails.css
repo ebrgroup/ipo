@@ -1,0 +1,144 @@
+.logoDetails-container {
+    position: relative;
+    background-color: white;
+    box-shadow: 0px 0px 4px 1px rgba(185, 185, 185, 0.384);
+    padding: 1.5rem 2rem;
+    border-radius: 20px;
+    width: 100%;
+    box-sizing: border-box;
+
+    min-height: 88vh;
+}
+
+#radio-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    /* gap: 1.5rem; */
+    justify-content: space-around;
+}
+
+.radio-card {
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 195px;
+    background-color: white;
+    padding: 1rem 2rem 0.5rem 1rem;
+    max-height: 180px;
+    /* max-height: fit-content; */
+    transition: all 0.3s;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.radio-card-1 img,
+.radio-card-2 img {
+    margin-top: 1rem;
+}
+
+.radio-card:hover {
+    border: 2px solid #016787;
+    cursor: pointer;
+}
+
+.radio-card-check {
+    display: none;
+    position: absolute;
+    top: 1rem;
+    left: 0.5rem;
+}
+
+.radio-card-check i {
+    font-size: 1.3rem;
+    color: #016787;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.radio-card-icon img {
+    width: 60%;
+    aspect-ratio: 3/2;
+    object-fit: contain;
+}
+
+.radio-card-3 .radio-card-icon img {
+    width: 100%;
+}
+
+
+.radio-card-label-description {
+    color: rgba(0, 0, 0, 0.7);
+    text-align: left;
+    position: relative;
+    left: 1.5rem;
+}
+
+.radio-card.selected {
+    border: 2px solid #016787;
+    background-color: #0885ab19;
+    transition: all 0.1s ease-in;
+}
+
+.radio-card.selected .radio-card-check {
+    display: inline-flex;
+}
+
+
+#logoDetail-section {
+    height: fit-content;
+    margin: 2.4rem 0;
+    width: 70%;
+}
+
+
+#logoDetail-section .input strong {
+    color: red;
+}
+
+#logoDetail-section .input input {
+    border: 2px solid #f6f7f8;
+    padding: 0.5rem;
+    background-color: #f6f7f8;
+    color: black;
+    border-radius: 5px;
+}
+
+#logoDetail-section .input {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+#logoDetail-section .input label {
+    font-size: small;
+}
+
+
+#logoDetail-section .input input:focus {
+    /* border: none; */
+    outline: none;
+}
+
+#continueBtn {
+    position: absolute;
+    right: 2rem;
+    bottom: 1.5rem;
+    background-color: #036666;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 400;
+    color: white;
+    width: 119px;
+    height: 38px;
+    border: none;
+
+}
+
+#continueBtn:hover {
+    cursor: pointer;
+    background-color: #036666c9;
+
+}

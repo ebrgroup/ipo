@@ -14,7 +14,9 @@ const SignIn = (props) => {
     const [showPassword, setShowPassword] = useState(false);
     const [formData, setFormData] = useState({
         email: '',
-        password: ''
+        password: '',
+        showEmailError: false,
+        showPasswordError: false,
     });
 
     const handleInputChange = (e) => {
@@ -41,15 +43,16 @@ const SignIn = (props) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        props.Progress(10);
-
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(formData.email)) {
-            handleToastDisplay("Invalid email format!", "error");
-            return;
-        }
-        props.Progress(40);
-        await axios.post(`/ipo/login`, formData)
+        if(isFormValid())
+        {
+            props.Progress(10);
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(formData.email)) {
+                handleToastDisplay("Invalid email format!", "error");
+                return;
+            }
+            props.Progress(40);
+            await axios.post(`/ipo/login`, formData)
             .then(response => {
                 props.Progress(70);
                 dispatch(loginSuccess(response.data.user));  //Store user data into redux store
@@ -69,6 +72,15 @@ const SignIn = (props) => {
                     handleToastDisplay("Error signing in!", "error");
                 }
             });
+        }
+        else {
+            handleToastDisplay("Required fields must not be left empty.", "error");
+            setFormData((prevFormData) => ({
+                ...prevFormData,
+                showEmailError: true,
+                showPasswordError: true
+            }));
+        }
     };
 
     const handleToastDisplay = (message, type) => {
@@ -115,22 +127,38 @@ const SignIn = (props) => {
                         name="email"
                         value={formData.email}
                         onChange={handleInputChange}
+                        onBlur={() => setFormData({ ...formData, showEmailError: true })}
+                        onFocus={() => setFormData({ ...formData, showEmailError: false })}
                     />
-                    <div className="line" />
+                    <div className={`line ${formData.showEmailError && formData.email.length == 0 ? "redLine" : ""}`} />
+                    <span className="errorText">
+                        {formData.showEmailError ? 
+                        (formData.email.length === 0 ? 
+                        "This field is required." : (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email) ? 
+                        "Email address should be of valid format." : "")) : ""}
+                    </span>
                 </div>
                 <div className="inputDiv">
                     <input
                         className="inputField passwordField"
                         placeholder="Password"
-                        type={showPassword ? "text" : "password"}
+                        type={formData.showPassword ? "text" : "password"}
                         name="password"
                         value={formData.password}
                         onChange={handleInputChange}
+                        onBlur={() => setFormData({ ...formData, showPasswordError: true })}
+                        onFocus={() => setFormData({ ...formData, showPasswordError: false })}
                     />
-                    <span className="passwordIcon" onClick={() => setShowPassword(!showPassword)}>
-                        <box-icon name={showPassword ? "hide" : "show"} color="grey" size="sm" />
+                    <span className="passwordIcon" onClick={() => setFormData((prevFormData) => ({...prevFormData, showPassword: !formData.showPassword}))}>
+                        <box-icon name={formData.showPassword ? "hide" : "show"} color="grey" size="sm" />
                     </span>
-                    <div className="line" />
+                    <div className={`line ${formData.showPasswordError && formData.password.length == 0 ? "redLine" : ""}`} />
+                    <span className="errorText">
+                        {formData.showPasswordError ? 
+                        (formData.password.length === 0 ? 
+                        "This field is required." : (formData.password.length < 8 ?
+                            "Password should atleast have eight characters." : "")) : ""}
+                    </span>
                 </div>
                 <div className="buttonDiv">
                     <div className="cantSignIn" onClick={() => navigate("/forgotpassword")}>
@@ -139,9 +167,6 @@ const SignIn = (props) => {
                     <button 
                         className="submitButton" 
                         type="Submit"
-                        title={!isFormValid() ? 
-                            "You cannot sign in until all the required fields are filled." : ""} 
-                        disabled={!isFormValid()}
                     >
                         Sign In
                     </button>

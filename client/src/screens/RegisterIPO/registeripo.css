@@ -1,0 +1,27 @@
+:root {
+    --gray: #6B6B6B;
+    --lightgray: #84818A;
+}
+
+.IP-Registration {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    padding-bottom: 0.7rem;
+}
+
+
+.IP-Registration>section {
+    width: 80%;
+    height: 88vh;
+}
+
+.IP-Registration aside {
+    width: 20rem;
+    top: 5rem;
+    height: 88vh;
+
+}

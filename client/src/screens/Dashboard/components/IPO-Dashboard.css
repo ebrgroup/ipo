@@ -1,0 +1,125 @@
+.dashboard {
+    width: 100%;
+    height: 100%;
+    padding-top: 1rem;
+    box-sizing: border-box;
+}
+
+.dashboardHeadingDiv p {
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+.dashboardHeadingDiv {
+    height: 9.4vh;
+}
+
+.Registered-IP,
+.Applied-IP {
+    display: flex;
+    background-color: #ffff;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0vh 1.25vw;
+    /* padding-top: 2vh; */
+    padding-bottom: 3vh;
+    border-radius: 10px;
+    box-sizing: border-box;
+    width: 100%;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    margin-bottom: 2.5vh;
+    border: 3px solid #086464;
+}
+
+.Registered-IP>p,
+.Applied-IP>p {
+    color: rgba(80, 79, 82, 0.975);
+    font-weight: 600;
+}
+
+.Registered-IP>.IPMenus,
+.Applied-IP>.IPMenus {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.IPMenus>.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    padding: 2px 0.7rem;
+    margin: 0.4rem 0;
+    border-radius: 12px;
+    width: 24%;
+}
+
+.menu img {
+    width: 40px;
+    height: 40px;
+}
+
+.menu>p:first-child {
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.menu>.IP-title {
+    transform: translateX(8px);
+}
+
+.IPMenus>.Trademark {
+    background-color: #15cab8;
+}
+
+.IPMenus>.Patent {
+    background-color: #44a6e9;
+}
+
+.IPMenus>.Design {
+    background-color: #ff8548;
+}
+
+.IPMenus>.Copyright {
+    background-color: #ff6a6a;
+}
+
+.Applied-IP {
+    margin-top: 10px;
+}
+
+@media (min-width:768px) and (max-width:992px) {
+    .IPMenus .menu {
+        width: 27%;
+    }
+
+    .IPMenus {
+        flex-wrap: wrap;
+    }
+}
+
+@media (min-width:572px) and (max-width:768px) {
+    .IPMenus .menu {
+        width: 40%;
+    }
+
+    .IPMenus {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width:572px) {
+    .IPMenus .menu {
+        width: 85%;
+        margin: auto;
+        margin-top: 0.5rem;
+    }
+
+    .IPMenus {
+        flex-wrap: wrap;
+    }
+}
