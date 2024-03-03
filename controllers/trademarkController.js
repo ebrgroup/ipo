@@ -1,19 +1,18 @@
 const Trademark = require("../modals/trademark.js");
-const AWS = require("aws-sdk");
+const { S3, config } = require("aws-sdk");
 const { ObjectId } = require('mongodb');
-require('aws-sdk/lib/maintenance_mode_message').suppress = true;
 
 const insertTradeMark = async (req, res) => {
     try {
 
-        AWS.config.update({
+        config.update({
             accessKeyId: process.env.AWS_ACCESS_KEY_ID,
             secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
             region: process.env.AWS_REGION,
             sessionToken: process.env.AWS_SESSION_TOKEN
         });
         
-        const s3 = new AWS.S3();
+        const s3 = new S3();
 
         req.body.applicationOwner = JSON.parse(req.body.applicationOwner);
         req.body.ownerDetails = JSON.parse(req.body.ownerDetails);
@@ -131,14 +130,14 @@ const searchTrademark = async (req, res) => {
 const trackTrademark = async (req, res) => {
     try {
 
-        AWS.config.update({
+        config.update({
             accessKeyId: process.env.AWS_ACCESS_KEY_ID,
             secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
             region: process.env.AWS_REGION,
             sessionToken: process.env.AWS_SESSION_TOKEN
         });
 
-        const s3 = new AWS.S3();
+        const s3 = new S3();
 
         let id = req.params.id;
         id = '#' + id;
