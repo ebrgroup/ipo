@@ -30,7 +30,7 @@ const insertTradeMark = async (req, res) => {
 
             try {
                 await s3Client.send(new PutObjectCommand({
-                  Bucket: "cyclic-long-teal-buffalo-gown-ap-southeast-2",
+                  Bucket: process.env.AWS_BUCKET,
                   Key: licenseFileName,
                   Body: req.files[0].buffer,
                 }));
@@ -40,7 +40,7 @@ const insertTradeMark = async (req, res) => {
 
             try {
                 await s3Client.send(new PutObjectCommand({
-                  Bucket: "cyclic-long-teal-buffalo-gown-ap-southeast-2",
+                  Bucket: process.env.AWS_BUCKET,
                   Key: logoImageName,
                   Body: req.files[1].buffer,
                 }));
@@ -55,7 +55,7 @@ const insertTradeMark = async (req, res) => {
 
             try {
                 await s3Client.send(new PutObjectCommand({
-                  Bucket: "cyclic-long-teal-buffalo-gown-ap-southeast-2",
+                  Bucket: process.env.AWS_BUCKET,
                   Key: logoImageName,
                   Body: req.files[0].buffer,
                 }));
@@ -137,7 +137,7 @@ const trackTrademark = async (req, res) => {
         });
 
         const url = await getSignedUrl(s3Client, new GetObjectCommand({
-            Bucket: "cyclic-long-teal-buffalo-gown-ap-southeast-2",
+            Bucket: process.env.AWS_BUCKET,
             Key: response[0].logoDetails.logoFile
         }), {
             expiresIn: 60
