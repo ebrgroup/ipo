@@ -15,7 +15,7 @@ const OwnerDetails = (props) => {
         city: "",
         companyName: "",
         otherBusinessDescription: "",
-        businessOwnerType: ""
+        businessOwnerType: "soleProprieterShip"
     });
     const [partnersData, setPartnersData] = useState([]);
     const [isPartnershipFirm, setPartnershipFirm] = useState(false);

@@ -63,7 +63,7 @@ const IPGridView = ({ rows }) => {
                                 >{data.status}</td>
                                 <td>
                                     {logos.length > 0 && logos[index] ? (
-                                        <img src={require(`../../../assets/uploads/${logos[index]}`)} alt={`Logo ${index}`} />
+                                        <img src={logos[index]} alt={`Logo ${index}`} />
                                     ) : (
                                         "Loading..."
                                     )}

@@ -144,6 +144,8 @@ const PaymentModal = ({ isOpen, closeModal, Progress }) => {
         formData.append('licenseFile', trademarkData.representative.representativeData.licenseFile);
         formData.append('logoFile', trademarkData.logodetail.logoDetails.logoFile);
 
+        console.log(formData)
+
         Progress(50);
         await axios.post("/ipo/trademark", formData, {
             headers: {
