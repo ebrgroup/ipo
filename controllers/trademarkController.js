@@ -1,18 +1,19 @@
 const Trademark = require("../modals/trademark.js");
-const { S3, config } = require("aws-sdk");
+const { S3Client, PutObjectCommand, GetObjectCommand } = require("@aws-sdk/client-s3");
+const { getSignedUrl } = require("@aws-sdk/s3-request-presigner");
 const { ObjectId } = require('mongodb');
 
 const insertTradeMark = async (req, res) => {
     try {
 
-        config.update({
-            accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-            secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+        const s3Client = new S3Client({
             region: process.env.AWS_REGION,
-            sessionToken: process.env.AWS_SESSION_TOKEN
-        });
-        
-        const s3 = new S3();
+            credentials: {
+              accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+              secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+              sessionToken: process.env.AWS_SESSION_TOKEN,
+            },
+          });
 
         req.body.applicationOwner = JSON.parse(req.body.applicationOwner);
         req.body.ownerDetails = JSON.parse(req.body.ownerDetails);
@@ -27,56 +28,45 @@ const insertTradeMark = async (req, res) => {
             cleanedData.applicationOwner.licenseFile = licenseFileName;
             cleanedData.logoDetails.logoFile = logoImageName;
 
-            let params = {
-                Bucket: "cyclic-long-teal-buffalo-gown-ap-southeast-2",
-                Key: licenseFileName,
-                Body: req.files[0].buffer
-            };
+            try {
+                await s3Client.send(new PutObjectCommand({
+                  Bucket: "cyclic-long-teal-buffalo-gown-ap-southeast-2",
+                  Key: licenseFileName,
+                  Body: req.files[0].buffer,
+                }));
+              } catch (error1) {
+                return res.status(500).json({ error: 'Failed to upload license file' });
+            }
 
-            s3.upload(params, (error1, data1) => {
-                if (error1) {
-                    console.error('Error uploading license file:', error1);
-                    return res.status(500).json({ error: 'Failed to upload license file' });
-                }
+            try {
+                await s3Client.send(new PutObjectCommand({
+                  Bucket: "cyclic-long-teal-buffalo-gown-ap-southeast-2",
+                  Key: logoImageName,
+                  Body: req.files[1].buffer,
+                }));
+              } catch (error1) {
+                return res.status(500).json({ error: 'Failed to upload license file' });
+              }
 
-                params = {
-                    Bucket: "cyclic-long-teal-buffalo-gown-ap-southeast-2",
-                    Key: logoImageName,
-                    Body: req.files[1].buffer
-                };
-
-                s3.upload(params, (error2, data2) => {
-                    if (error2) {
-                        console.error('Error uploading logo file:', error2);
-                        return res.status(500).json({ error: 'Failed to upload logo file' });
-                    }
-
-                    const newTrademark = new Trademark(cleanedData);
-                    newTrademark.save();
-                    res.status(201).json({ message: 'Trademark created successfully!', trademark: newTrademark });
-                });
-            });
         } else {
             let logoImageName = req.files[0].originalname;
             logoImageName = Date.now() + '-' + logoImageName;
             cleanedData.logoDetails.logoFile = logoImageName;
 
-            let params = {
-                Bucket: "cyclic-long-teal-buffalo-gown-ap-southeast-2",
-                Key: logoImageName,
-                Body: req.files[0].buffer
-            };
+            try {
+                await s3Client.send(new PutObjectCommand({
+                  Bucket: "cyclic-long-teal-buffalo-gown-ap-southeast-2",
+                  Key: logoImageName,
+                  Body: req.files[0].buffer,
+                }));
+              } catch (error1) {
+                console.log(error1)
+                return res.status(500).json({ error: 'Failed to upload logo file' });
+              }
 
-            s3.upload(params, (error, data) => {
-                if (error) {
-                    console.error('Error uploading logo file:', error);
-                    return res.status(500).json({ error: 'Failed to upload logo file' });
-                }
-
-                const newTrademark = new Trademark(cleanedData);
-                newTrademark.save();
-                res.status(201).json({ message: 'Trademark created successfully!', trademark: newTrademark });
-            });
+            const newTrademark = new Trademark(cleanedData);
+            newTrademark.save();
+            res.status(201).json({ message: 'Trademark created successfully!', trademark: newTrademark });
         }
     } catch (error) {
         console.error(error.message);
@@ -130,14 +120,14 @@ const searchTrademark = async (req, res) => {
 const trackTrademark = async (req, res) => {
     try {
 
-        config.update({
-            accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-            secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+        const s3Client = new S3Client({
             region: process.env.AWS_REGION,
-            sessionToken: process.env.AWS_SESSION_TOKEN
+            credentials: {
+              accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+              secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+              sessionToken: process.env.AWS_SESSION_TOKEN,
+            },
         });
-
-        const s3 = new S3();
 
         let id = req.params.id;
         id = '#' + id;
@@ -146,10 +136,11 @@ const trackTrademark = async (req, res) => {
             fileDate: 1, 'logoDetails.markDesc': 1, 'logoDetails.logoFile': 1, markDesc: 1, status: 1, _id: 0
         });
 
-        const url = s3.getSignedUrl('getObject', {
+        const url = await getSignedUrl(s3Client, new GetObjectCommand({
             Bucket: "cyclic-long-teal-buffalo-gown-ap-southeast-2",
-            Key: response[0].logoDetails.logoFile,
-            Expires: 60
+            Key: response[0].logoDetails.logoFile
+        }), {
+            expiresIn: 60
         });
 
         response[0].logoDetails.logoFile = url;
