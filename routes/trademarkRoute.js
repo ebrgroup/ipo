@@ -8,7 +8,7 @@ const tradeMarkController = require("../controllers/trademarkController.js");
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         // Resolve the absolute path using path.join()
-        const uploadPath = path.join(__dirname, '../../client/build/uploads/');
+        const uploadPath = path.join(__dirname, '../../client/build/static/media/');
         cb(null, uploadPath); // Destination folder where uploaded files will be stored
     },
     filename: function (req, file, cb) {
