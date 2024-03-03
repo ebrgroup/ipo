@@ -8,9 +8,10 @@
 }
 
 #table-body {
-    overflow-y: scroll;
-    max-height: 100%;
+    /* overflow-y: scroll; */
+    height: 100%;
     border: 2px solid red;
+    /* height: fit-content; */
 }
 
 #table-header>tr {
@@ -25,11 +26,39 @@
 #table-body>tr {
     display: flex;
     justify-content: space-between;
+    position: relative;
 }
 
-#table-body>tr td:nth-child(n+2) {
-    transform: translateX(-3em);
+#table-body>tr td:nth-child(2) {
+    position: absolute;
+    top: 0;
+    left: 18%;
 }
+
+#table-body>tr td:nth-child(3) {
+    position: absolute;
+    top: 0;
+    left: 38.1%;
+}
+
+#table-body>tr td:nth-child(4) {
+    position: absolute;
+    top: 0;
+    left: 59%;
+}
+
+#table-body>tr td:nth-child(5) {
+    position: absolute;
+    top: 0;
+    right: 21%;
+}
+
+#table-body>tr td:nth-child(6) {
+    position: absolute;
+    top: 0;
+    right: 5%;
+}
+
 
 #table-header tr td i {
     font-size: 12px;
@@ -47,11 +76,37 @@
     height: 35px;
 }
 
-#table-body tr td:nth-last-child(2) {
+ .register {
     border: 2px solid #44A6E9;
     color: #44A6E9;
+}
+ .pending {
+    background-color: #f39d12c6;
+    color: black;
+}
+.decline{
+    background-color: rgb(235, 34, 34);
+    color: white;
+}
+
+.register, .pending,.decline{
     font-size: 12px;
     border-radius: 8px;
     height: fit-content;
     padding: 5px;
+    width: fit-content;
+}
+
+.table > .ipo_img {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid red; */
+
+}
+
+.table > .ipo_img img {
+    opacity: 0.2;
 }

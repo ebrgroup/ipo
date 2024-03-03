@@ -7,8 +7,6 @@ router.get('/users', userController.fetchUsersData);
 
 router.get('/users/:id', userController.fetchUserData);
 
-router.get('/users/Request:token', userController.checkResetPasswordLink);
-
 router.post('/users/email/', userController.fetchUserByEmail);
 
 router.post('/users', userController.createUserDocument);

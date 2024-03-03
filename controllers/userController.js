@@ -190,7 +190,13 @@ const checkResetPasswordLink = async (req, res) => {
         });
 
         if(!user) {
+            if (process.env.NODE_ENV != "production") {
+                return res.redirect(`http://localhost:3000/signin`); // create a new page to show that the link has expired   
+            }
             return res.redirect(`https://ipo-pk.cyclic.app/signin`);
+        }
+        if (process.env.NODE_ENV != "production") {
+            return res.redirect(`http://localhost:3000/createnewpassword/${token}`); 
         }
         return res.redirect(`https://ipo-pk.cyclic.app/createnewpassword/${token}`);
     } catch(error) {

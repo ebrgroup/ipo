@@ -7,13 +7,13 @@ const ProfileDropdown = (props) => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    const handleLogout = () => {
-        dispatch(logout())
-        navigate("/signin")
+    const handleLogout = (e) => {
+        dispatch(logout());
+        navigate("/signin");
     }
 
     return (
-        <div className="profileDropdownDiv">
+        <div className="profileDropdownDiv" ref={props.profileRef} >
             <ul className="profileDropdownList">
                 <li onClick={() => {
                     navigate("/profile");
@@ -27,10 +27,7 @@ const ProfileDropdown = (props) => {
                 }}>
                     Change Password
                 </li>
-                <li onClick={() => {
-                    handleLogout();
-                    props.setShowProfileDropdown(false);
-                }}>
+                <li onClick={handleLogout}>
                     Logout
                 </li>
             </ul>

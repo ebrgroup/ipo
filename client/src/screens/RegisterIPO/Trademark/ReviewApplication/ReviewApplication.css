@@ -14,14 +14,15 @@
 .reviewAppBox {
     box-sizing: border-box;
     background-color: white;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 4px 1px rgba(185, 185, 185, 0.384);
     height: 100%;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    padding: 0rem 1rem;
-    padding-left: 2rem;
+    padding: 1.5rem 2rem;
     gap: 1rem;
+
+    position: relative;
 }
 
 .reviewAppLabel {
@@ -34,11 +35,62 @@
     font-size: 0.9rem;
 }
 
+.review-dataTable {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    box-shadow: 0px 0px 4px 2.5px rgba(185, 185, 185, 0.5); 
+    table-layout: auto;
+}
+  
+.review-dataTable th {
+  font-weight: normal;
+  background-color: #036666;
+  color: white;
+  font-size: 0.8rem;
+  height: 4vh;
+  width: 32%;
+}
+  
+.review-dataTable tr {
+  padding-left: 50vw;
+}
+
+.review-dataTable td {
+  text-align: center;
+  color: black;
+  height: 4vh;
+  font-weight: 300;
+  font-size: 0.75rem;
+}
+
+.review-dataTable tbody tr:nth-child(even) {
+  background-color: rgb(235, 235, 235);
+}
+
+.firstHeader {
+  border-top-left-radius: 8px;
+}
+
+.lastHeader {
+  border-top-right-radius: 8px;
+} 
+
 .reviewAppColumnsDiv {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 2rem;
+    gap: 3rem;
+}
+
+.reviewAppColumnsDiv .data-column{
+    margin-top:10px;
+}
+
+.optional-data-column {
+    height: 21vh;
 }
 
 .reviewAppBoxFooter {
@@ -49,6 +101,7 @@
 }
 
 .reviewAppBoxFooter div {
+    /* display: flex; */
     flex-direction: column;
     font-size: 0.8rem;
     gap: 0.35rem;

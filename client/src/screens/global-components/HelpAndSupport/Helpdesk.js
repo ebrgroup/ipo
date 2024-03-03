@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 
 const Helpdesk = () => {
     const helpContent = useSelector(state => state.helpdeskContentReducer?.content);
-    const [hide, setHide] = useState(true)
+    const [hide, setHide] = useState(false)
 
     return (
         <>

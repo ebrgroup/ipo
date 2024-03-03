@@ -5,6 +5,7 @@
     border-radius: 12px;
     margin: 2vh 0 0 1.5vw;
     box-shadow: 0px 0px 4px 1px rgba(185, 185, 185, 0.384);
+    position: relative;
 }
 
 .confirmation-child-container {
@@ -52,22 +53,27 @@
 }
 
 .confirmation-questions span {
-    
+
     transition: color 0.4s ease;
     color: #008ECB;
     text-decoration: underline;
 }
 
-.confirmation-questions:hover, span:hover {
+.confirmation-questions:hover,
+.confirmation-questions span:hover {
     cursor: pointer;
     color: blue;
 }
 
-.confirmation-button-container {
+/* .confirmation-button-container {
     display: flex;
     justify-content: end;
     height: 10%;
     width: 100%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
 }
 
 .confirmation-button-container button {
@@ -86,4 +92,4 @@
 .confirmation-button-container button:hover {
     cursor: pointer;
     background-color: #036666c9;
-}
+} */

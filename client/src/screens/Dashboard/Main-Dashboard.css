@@ -25,6 +25,7 @@
 .screenContent {
     height: 90%;
     box-sizing: border-box;
+    /* background-color: #FFFEEC; */
 }
 
 .header {

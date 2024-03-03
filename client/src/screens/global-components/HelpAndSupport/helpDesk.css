@@ -5,7 +5,6 @@
     font-size: large;
     font-weight: 500;
     justify-content: center;
-
     /* box-shadow: 0px 0px 10px 1px rgba(202, 200, 200, 0.734); */
     margin-top: 5px;
     /* background-color: white; */
@@ -23,12 +22,11 @@
 .helpDesk-container {
     padding: 1rem;
     background-color: rgba(255, 255, 255, 0.879);
-    box-shadow: 0px 0px 4px 1px rgba(185, 185, 185, 0.384);
+    box-shadow: 0px 0px 4px 2px rgba(185, 185, 185, 0.7);
     box-sizing: border-box;
     height: 100%;
-    border-radius: 10px;
+    border-radius: 25px;
     /* display: none; */
-
 }
 
 .helpDesk-container .helpDesk-header {

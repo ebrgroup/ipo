@@ -10,14 +10,12 @@ function Sidebar() {
     const dispatch = useDispatch();
 
     const handleLogout = () => {
-        dispatch(logout());
         navigate("/signin");
     };
 
     const toggle_Sidebar = useSelector(state => state.toggleReducer?.val);
 
     const handleRegerterIP = () => {
-        dispatch(registerIPHelp())
         navigate("/registeripo")
     }
     return (
@@ -48,7 +46,7 @@ function Sidebar() {
                     </div>
                     <div className="menu-item" onClick={() => navigate("/trackip")}>
                         <i className="fa-sharp fa-light fa-grid-2"></i>
-                        <p className="title">Track IP Status</p>
+                        <p className="title">Track My IP Status</p>
                     </div>
                 </div>
             </div>

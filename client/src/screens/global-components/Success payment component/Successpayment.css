@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+:root {
+    --green: #1D8B50
+}
+
+.Success-container {
+    width: 96%;
+    margin: auto;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "Manrope", sans-serif;
+    color:black;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.Success-container img {
+    width: 45px;
+    height: 45px;
+}
+
+.Success-container h3 {
+    color: var(--green);
+    font-weight: 600;
+    font-size: medium;
+}
+
+.Success-container p {
+    text-align: center;
+    margin-top: 0;
+    font-weight: 500;
+}
+
+.Success-container .trackBtn {
+    background-color: #036666;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 400;
+    color: white;
+    width: 140px;
+    height: 35px;
+    border: none;
+    margin: 0 3px;
+
+}
+
+.Success-container .trackBtn:hover {
+    cursor: pointer;
+    background-color: #036666c9;
+}

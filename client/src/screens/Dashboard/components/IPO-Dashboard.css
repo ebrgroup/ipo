@@ -22,7 +22,6 @@
     justify-content: space-between;
     align-items: center;
     padding: 0vh 1.25vw;
-    /* padding-top: 2vh; */
     padding-bottom: 3vh;
     border-radius: 10px;
     box-sizing: border-box;
@@ -52,10 +51,11 @@
     justify-content: space-between;
     align-items: center;
     color: white;
-    padding: 2px 0.7rem;
+    padding: 2px 2rem;
     margin: 0.4rem 0;
     border-radius: 12px;
     width: 24%;
+    box-sizing: border-box;
 }
 
 .menu img {

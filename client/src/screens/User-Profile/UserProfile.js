@@ -153,29 +153,6 @@ function UserProfile() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        if (user_profile.cnic.length !== 13) {
-            handleToastDisplay("CNIC should be 13 digits long.", "error");
-            return;
-        }
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(user_profile.email)) {
-            handleToastDisplay("Invalid email format!", "error");
-            return;
-        }
-        if (user_profile.phone.length !== 11) {
-            handleToastDisplay("Phone no. should be 11 digits long.", "error");
-            return;
-        }
-        if (user_profile.landlineNum.length !== 0 && user_profile.landlineNum.length < 7) {
-            handleToastDisplay("Landline no. should be 7-11 digits long.", "error");
-            return;
-        }
-        if (user_profile.faxNum.length !== 0 && user_profile.faxNum.length < 7) {
-            handleToastDisplay("Fax no. should be 7-11 digits long.", "error");
-            return;
-        }
-
         dispatch(updateUser(userID, user_profile)).then(() => {
             navigate('/dashboard');
             handleToastDisplay("You have successfully updated your profile.", "success")
@@ -390,21 +367,6 @@ function UserProfile() {
                             title={areRequiredFieldsEmpty() ?
                                 "You cannot save until all the required fields are filled except Landline and Fax." : ""}
                         >
-                            {/* <div class="svg-wrapper-1">
-                                <div class="svg-wrapper">
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24"
-                                    width="30"
-                                    height="30"
-                                    class="icon"
-                                >
-                                    <path
-                                    d="M22,15.04C22,17.23 20.24,19 18.07,19H5.93C3.76,19 2,17.23 2,15.04C2,13.07 3.43,11.44 5.31,11.14C5.28,11 5.27,10.86 5.27,10.71C5.27,9.33 6.38,8.2 7.76,8.2C8.37,8.2 8.94,8.43 9.37,8.8C10.14,7.05 11.13,5.44 13.91,5.44C17.28,5.44 18.87,8.06 18.87,10.83C18.87,10.94 18.87,11.06 18.86,11.17C20.65,11.54 22,13.13 22,15.04Z"
-                                    ></path>
-                                </svg>
-                                </div>
-                            </div> */}
                             <span>Save</span>
                         </button>
                         <button className='cancelBtn' onClick={handleCancelbtn}>Cancel</button>

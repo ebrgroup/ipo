@@ -15,7 +15,7 @@
   justify-content: space-between;
   height: fit-content;
   width: 28%;
-  background-color: #fff;
+  background-color: #fff; /* We can do like #e8e8e8 for other color */
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
@@ -246,10 +246,6 @@
   height: 1.8rem;
 }
 
-
-
-
-
 .pay-button-container {
   height: 6vh;
   background: radial-gradient(circle, rgba(77,127,127,1) 0%, rgba(1,101,101,1) 89%, rgba(3,102,102,1) 100%);
@@ -261,7 +257,12 @@
   display: flex;
   justify-content: center;
   cursor: pointer;
-  background: #036666; /* New background color on hover */
+  background: #036666;
+}
+
+.pay-button-container:disabled:hover {
+  cursor: auto;
+  user-select: none;
 }
 
 .pay-button-container div {

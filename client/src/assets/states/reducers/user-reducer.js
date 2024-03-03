@@ -8,9 +8,10 @@ const userReducer = (state = initialState, action) => {
         case 'LOGIN_SUCCESS':
             return { ...state, isLoggedIn: true, userData: action.payload };
         case "UPDATE_PROFILE":
-            return { ...state, isLoggedIn: true, userData: action.payload };
+            return { ...state, userData: action.payload };
+
         case 'LOGOUT':
-            return { ...state, isLoggedIn: false, userData: {} };
+            return initialState;
 
         default:
             return state;

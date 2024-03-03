@@ -16,11 +16,9 @@ const generateResetToken =  async (email) => {
             { $set: { resetToken, resetTokenExpiry } },
             { new: true }
         );
-
         if(!user) {
             return null;
         }
-
         return resetToken;
     } catch (error) {
         return { error: error.message }
@@ -66,7 +64,11 @@ const sendEmailForResetPassword = async (req, res) => {
             res.cookie("otp", otp, { secure: true, httpOnly: true, maxAge: 24 * 60 * 60 * 1000 });
         } else {
             const resetToken = await generateResetToken(email);
-            resetLink = `https://ipo-pk.cyclic.app/createnewpassword/${ resetToken }`;
+            if (process.env.NODE_ENV != "production") {
+                resetLink = `http://localhost:5000/ipo/users/Request/${ resetToken }`;
+            } else {
+                resetLink = `https://ipo-pk.cyclic.app/ipo/users/Request/${ resetToken }`;
+            }
             if(resetToken == null) {
                 return res.status(404).json({ error: "User with this email doesn't exist" });
             } else if (resetToken && resetToken.error) {
@@ -86,6 +88,7 @@ const sendEmailForResetPassword = async (req, res) => {
 
         transporter.sendMail(mailOptions, (error, info) => {
             if(error) {
+                console.log(error)
                 return res.status(404).json({ error: "We were unable to send you the password recovery link!" });
             }
             res.status(200).json({ message: "We have sent you the password recovery link. Please check your email!" });

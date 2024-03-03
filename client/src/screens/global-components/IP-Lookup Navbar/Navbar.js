@@ -2,19 +2,36 @@ import React, { useState } from 'react'
 import './Navbar.css'
 import patent from '../../../assets/Icons/icons8-patent-32.png'
 import design from '../../../assets/Icons/icons8-design-50.png'
+import { useDispatch } from 'react-redux'
+import { searchByName, trackById } from '../../../assets/states/middlewares/ipTable-data.js'
+import { useLocation } from 'react-router-dom'
 
 
 const Navbar = ({ searchTitle }) => {
     const [display, setDisplay] = useState(false)
-
-    //Get Search_IP from SearchBox
+    const [search, setSearch] = useState('')
+    const dispatch = useDispatch();
+    const location = useLocation()
     const handleChange = (e) => {
-        let Search_IP = e.target.value;
+        let input = e.target.value
+        input = input.replace('#', '')
+        setSearch(input);  //Get Search_IP from SearchBox
 
     }
+
     const showTypes = () => {
-        //Toggle display
-        setDisplay(!display);
+        setDisplay(!display);  //Toggle display
+    }
+
+    const handleSearch = () => {
+        if (search) {
+            if (location.pathname == '/searchip') {
+                dispatch(searchByName(search))
+            }
+            else if (location.pathname == '/trackip') {
+                dispatch(trackById(search))
+            }
+        }
     }
     return (
         <nav id='Navbar'>
@@ -30,7 +47,7 @@ const Navbar = ({ searchTitle }) => {
                     Select IP Type
                     <i class="fa-sharp fa-light fa-angle-down"></i>
                 </button>
-                <button className='search btn' >Search</button>
+                <button className='search btn' onClick={handleSearch} >Search</button>
             </div>
             <div className='IPtypes' style={{ 'display': display ? 'block' : 'none' }}>
                 <div>
